@@ -1,0 +1,146 @@
+---
+#layout: page
+title: "Blackmagic Design ATEM Protocol Macro Enums"
+permalink: /enums
+---
+## Special Enums
+Note: Not every value of these enums is available in every model. It is possible to work out which values are supported by checking the values reported by some of the DeviceProfile commands
+
+### VideoSource
+- 0 = Black
+- 1 = Input1
+- 2 = Input2
+- 3 = Input3
+- 4 = Input4
+- 5 = Input5
+- 6 = Input6
+- 7 = Input7
+- 8 = Input8
+- 9 = Input9
+- 10 = Input10
+- 11 = Input11
+- 12 = Input12
+- 13 = Input13
+- 14 = Input14
+- 15 = Input15
+- 16 = Input16
+- 17 = Input17
+- 18 = Input18
+- 19 = Input19
+- 20 = Input20
+- 21 = Input21
+- 22 = Input22
+- 23 = Input23
+- 24 = Input24
+- 25 = Input25
+- 26 = Input26
+- 27 = Input27
+- 28 = Input28
+- 29 = Input29
+- 30 = Input30
+- 31 = Input31
+- 32 = Input32
+- 33 = Input33
+- 34 = Input34
+- 35 = Input35
+- 36 = Input36
+- 37 = Input37
+- 38 = Input38
+- 39 = Input39
+- 40 = Input40
+- 1000 = ColorBars
+- 2001 = Color1
+- 2002 = Color2
+- 3010 = MediaPlayer1
+- 3011 = MediaPlayer1Key
+- 3020 = MediaPlayer2
+- 3021 = MediaPlayer2Key
+- 3030 = MediaPlayer3
+- 3031 = MediaPlayer3Key
+- 3040 = MediaPlayer4
+- 3041 = MediaPlayer4Key
+- 4010 = Key1Mask
+- 4020 = Key2Mask
+- 4030 = Key3Mask
+- 4040 = Key4Mask
+- 5010 = DSK1Mask
+- 5020 = DSK2Mask
+- 6000 = SuperSource
+- 6001 = SuperSource2
+- 7001 = CleanFeed1
+- 7002 = CleanFeed2
+- 7003 = CleanFeed3
+- 7004 = CleanFeed4
+- 8001 = Auxilary1
+- 8002 = Auxilary2
+- 8003 = Auxilary3
+- 8004 = Auxilary4
+- 8005 = Auxilary5
+- 8006 = Auxilary6
+- 8007 = Auxilary7
+- 8008 = Auxilary8
+- 8009 = Auxilary9
+- 8010 = Auxilary10
+- 8011 = Auxilary11
+- 8012 = Auxilary12
+- 8013 = Auxilary13
+- 8014 = Auxilary14
+- 8015 = Auxilary15
+- 8016 = Auxilary16
+- 8017 = Auxilary17
+- 8018 = Auxilary18
+- 8019 = Auxilary19
+- 8020 = Auxilary20
+- 8021 = Auxilary21
+- 8022 = Auxilary22
+- 8023 = Auxilary23
+- 8024 = Auxilary24
+- 10010 = ME1Prog
+- 10011 = ME1Prev
+- 10020 = ME2Prog
+- 10021 = ME2Prev
+- 10030 = ME3Prog
+- 10031 = ME3Prev
+- 10040 = ME4Prog
+- 10041 = ME4Prev
+- 11001 = Input1Direct
+
+### AudioSource
+- 1 = Input1
+- 2 = Input2
+- 3 = Input3
+- 4 = Input4
+- 5 = Input5
+- 6 = Input6
+- 7 = Input7
+- 8 = Input8
+- 9 = Input9
+- 10 = Input10
+- 11 = Input11
+- 12 = Input12
+- 13 = Input13
+- 14 = Input14
+- 15 = Input15
+- 16 = Input16
+- 17 = Input17
+- 18 = Input18
+- 19 = Input19
+- 20 = Input20
+- 1001 = XLR
+- 1101 = AESEBU
+- 1201 = RCA
+- 1301 = Mic1
+- 1302 = Mic2
+- 2001 = MP1
+- 2002 = MP2
+- 2003 = MP3
+- 2004 = MP4
+
+### AuxiliaryId
+- 0 = One
+- 1 = Two
+- 2 = Three
+- 3 = Four
+- 4 = Five
+- 5 = Six
+
