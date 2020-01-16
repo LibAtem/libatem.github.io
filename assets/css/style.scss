@@ -1,0 +1,12 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.custom_navbar {
+    font-size: 1.5em;
+
+    a {
+        color: white;
+    }
+}
