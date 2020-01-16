@@ -68,7 +68,7 @@ Payload length: 4
 | ArtAbove | False | 0 | Bool (Bit 0) |  |
 
 ### SuperSourceV2ArtAbove (398)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtAboveMacroOp
 
 Payload length: 4
@@ -88,7 +88,7 @@ Payload length: 4
 | Clip | False | 0-5 | UInt<br/>Double Scale 65536 | 0 - 65536<br/>(0 - 1) |
 
 ### SuperSourceV2ArtClip (400)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtClipMacroOp
 
 Payload length: 8
@@ -108,7 +108,7 @@ Payload length: 4
 | Source | False | 0-5 | Enum (VideoSource) | (See video source list) |
 
 ### SuperSourceV2ArtCutInput (396)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtCutInputMacroOp
 
 Payload length: 4
@@ -128,7 +128,7 @@ Payload length: 4
 | Source | False | 0-5 | Enum (VideoSource) | (See video source list) |
 
 ### SuperSourceV2ArtFillInput (397)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtFillInputMacroOp
 
 Payload length: 4
@@ -148,7 +148,7 @@ Payload length: 4
 | Gain | False | 0-5 | UInt<br/>Double Scale 65536 | 0 - 65536<br/>(0 - 1) |
 
 ### SuperSourceV2ArtGain (401)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtGainMacroOp
 
 Payload length: 8
@@ -168,7 +168,7 @@ Payload length: 4
 | Invert | False | 0 | Bool (Bit 0) |  |
 
 ### SuperSourceV2ArtInvert (402)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtInvertMacroOp
 
 Payload length: 4
@@ -188,7 +188,7 @@ Payload length: 4
 | PreMultiply | False | 0 | Bool (Bit 0) |  |
 
 ### SuperSourceV2ArtPreMultiply (399)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ArtPreMultiplyMacroOp
 
 Payload length: 4
@@ -208,7 +208,7 @@ Payload length: 4
 | Bevel | False | 0 | Enum (BorderBevel) | 0 = None<br/>1 = InOut<br/>2 = In<br/>3 = Out |
 
 ### SuperSourceV2BorderBevel (407)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderBevelMacroOp
 
 Payload length: 4
@@ -228,7 +228,7 @@ Payload length: 4
 | BevelPosition | False | 0 | UInt | 0 - 100 |
 
 ### SuperSourceV2BorderBevelPosition (412)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderBevelPositionMacroOp
 
 Payload length: 4
@@ -248,7 +248,7 @@ Payload length: 4
 | BevelSoftness | False | 0 | UInt | 0 - 100 |
 
 ### SuperSourceV2BorderBevelSoftness (413)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderBevelSoftnessMacroOp
 
 Payload length: 4
@@ -268,7 +268,7 @@ Payload length: 4
 | Enable | False | 0 | Bool (Bit 0) |  |
 
 ### SuperSourceV2BorderEnable (403)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderEnableMacroOp
 
 Payload length: 4
@@ -288,7 +288,7 @@ Payload length: 4
 | Hue | False | 0-7 | UInt<br/>Double Scale 65536 | 0 - 23592960<br/>(0 - 360) |
 
 ### SuperSourceV2BorderHue (404)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderHueMacroOp
 
 Payload length: 8
@@ -308,7 +308,7 @@ Payload length: 4
 | InnerSoftness | False | 0 | UInt | 0 - 100 |
 
 ### SuperSourceV2BorderInnerSoftness (411)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderInnerSoftnessMacroOp
 
 Payload length: 4
@@ -328,7 +328,7 @@ Payload length: 4
 | InnerWidth | False | 0-7 | UInt<br/>Double Scale 65536 | 0 - 1048576<br/>(0 - 16) |
 
 ### SuperSourceV2BorderInnerWidth (409)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderInnerWidthMacroOp
 
 Payload length: 8
@@ -348,7 +348,7 @@ Payload length: 4
 | Luma | False | 0-7 | UInt<br/>Double Scale 4294967295 | 0 - 4294967295<br/>(0 - 1) |
 
 ### SuperSourceV2BorderLuminescence (406)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderLuminescenceMacroOp
 
 Payload length: 8
@@ -368,7 +368,7 @@ Payload length: 4
 | OuterSoftness | False | 0 | UInt | 0 - 100 |
 
 ### SuperSourceV2BorderOuterSoftness (410)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderOuterSoftnessMacroOp
 
 Payload length: 4
@@ -388,7 +388,7 @@ Payload length: 4
 | OuterWidth | False | 0-7 | UInt<br/>Double Scale 65536 | 0 - 1048576<br/>(0 - 16) |
 
 ### SuperSourceV2BorderOuterWidth (408)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderOuterWidthMacroOp
 
 Payload length: 8
@@ -408,7 +408,7 @@ Payload length: 4
 | Saturation | False | 0-7 | UInt<br/>Double Scale 65535.99998474121 | 0 - 65535<br/>(0 - 0.9999847414437646) |
 
 ### SuperSourceV2BorderSaturation (405)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BorderSaturationMacroOp
 
 Payload length: 8
@@ -429,7 +429,7 @@ Payload length: 4
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxEnable (416)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxEnableMacroOp
 
 Payload length: 8
@@ -451,7 +451,7 @@ Payload length: 4
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxInput (417)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxInputMacroOp
 
 Payload length: 8
@@ -473,7 +473,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxMaskBottom (423)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxMaskBottomMacroOp
 
 Payload length: 8
@@ -495,7 +495,7 @@ Payload length: 4
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxMaskEnable (421)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxMaskEnableMacroOp
 
 Payload length: 8
@@ -517,7 +517,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxMaskLeft (424)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxMaskLeftMacroOp
 
 Payload length: 8
@@ -539,7 +539,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxMaskRight (425)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxMaskRightMacroOp
 
 Payload length: 8
@@ -561,7 +561,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxMaskTop (422)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxMaskTopMacroOp
 
 Payload length: 8
@@ -583,7 +583,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxSize (420)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxSizeMacroOp
 
 Payload length: 8
@@ -605,7 +605,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxXPosition (418)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxXPositionMacroOp
 
 Payload length: 8
@@ -627,7 +627,7 @@ Payload length: 8
 | BoxIndex | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 
 ### SuperSourceV2BoxYPosition (419)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2BoxYPositionMacroOp
 
 Payload length: 8
@@ -648,7 +648,7 @@ Payload length: 4
 | Altitude | False | 0-5 | UInt | 10 - 100 |
 
 ### SuperSourceV2ShadowAltitude (415)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ShadowAltitudeMacroOp
 
 Payload length: 4
@@ -668,7 +668,7 @@ Payload length: 4
 | Direction | False | 0-7 | UInt<br/>Double Scale 65536 | 0 - 23592960<br/>(0 - 360) |
 
 ### SuperSourceV2ShadowDirection (414)
-#### From V8_0
+#### Since V8_0
 Implementation: LibAtem.MacroOperations.SuperSource.SuperSourceV2ShadowDirectionMacroOp
 
 Payload length: 8
