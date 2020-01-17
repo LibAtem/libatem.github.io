@@ -13,6 +13,8 @@ Implementation: LibAtem.Commands.AuxSourceGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Id | True | 0 | Enum (AuxiliaryId) | (See auxiliary list) |
@@ -22,6 +24,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.AuxSourceSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -34,6 +38,8 @@ Implementation: LibAtem.Commands.ColorGeneratorGetCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (ColorGeneratorId) | 0 = One<br/>1 = Two |
@@ -45,6 +51,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.ColorGeneratorSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -62,6 +70,8 @@ Implementation: LibAtem.Commands.StartupStateClearCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Data | False | 0-3 | Bytes |  |
@@ -70,6 +80,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.StartupStateSaveCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -86,6 +98,8 @@ Implementation: LibAtem.Commands.TallyChannelConfigCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Unknown | False | 0-3 | Bytes |  |
@@ -98,6 +112,8 @@ TODO - support generating this
 Implementation: LibAtem.Commands.TimeCodeCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -112,12 +128,16 @@ Implementation: LibAtem.Commands.TimeCodeRequestCommand
 
 Payload length: 0
 
+Direction: ToServer
+
 Command has no properties
 
 ### Warn
 Implementation: LibAtem.Commands.WarningCommand
 
 Payload length: 44
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -128,6 +148,8 @@ Payload length: 44
 Implementation: LibAtem.Commands.SuperSource.SuperSourceBorderGetCommand
 
 Payload length: 24
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -151,6 +173,8 @@ Payload length: 24
 Implementation: LibAtem.Commands.SuperSource.SuperSourceBorderSetCommand
 
 Payload length: 24
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -176,6 +200,8 @@ Implementation: LibAtem.Commands.SuperSource.SuperSourceBoxGetV8Command
 
 Payload length: 24
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SSrcId | True | 0 | Enum (SuperSourceId) | 0 = One<br/>1 = Two |
@@ -196,6 +222,8 @@ Implementation: LibAtem.Commands.SuperSource.SuperSourceBoxGetCommand
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (SuperSourceBoxId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -215,6 +243,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.SuperSource.SuperSourceBoxSetV8Command
 
 Payload length: 24
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -237,6 +267,8 @@ Implementation: LibAtem.Commands.SuperSource.SuperSourceBoxSetCommand
 
 Payload length: 24
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0-1 | Enum (MaskFlags) | Bit 0 = Enabled<br/>Bit 1 = Source<br/>Bit 2 = PositionX<br/>Bit 3 = PositionY<br/>Bit 4 = Size<br/>Bit 5 = Cropped<br/>Bit 6 = CropTop<br/>Bit 7 = CropBottom<br/>Bit 8 = CropLeft<br/>Bit 9 = CropRight |
@@ -258,6 +290,8 @@ Implementation: LibAtem.Commands.SuperSource.SuperSourcePropertiesGetV8Command
 
 Payload length: 16
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SSrcId | True | 0 | Enum (SuperSourceId) | 0 = One<br/>1 = Two |
@@ -273,6 +307,8 @@ Payload length: 16
 Implementation: LibAtem.Commands.SuperSource.SuperSourcePropertiesGetCommand
 
 Payload length: 32
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -303,6 +339,8 @@ Implementation: LibAtem.Commands.SuperSource.SuperSourcePropertiesSetV8Command
 
 Payload length: 16
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ArtFillSource<br/>Bit 1 = ArtCutSource<br/>Bit 2 = ArtOption<br/>Bit 3 = ArtPreMultiplied<br/>Bit 4 = ArtClip<br/>Bit 5 = ArtGain<br/>Bit 6 = ArtInvertKey |
@@ -319,6 +357,8 @@ Payload length: 16
 Implementation: LibAtem.Commands.SuperSource.SuperSourcePropertiesSetCommand
 
 Payload length: 36
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -349,6 +389,8 @@ Implementation: LibAtem.Commands.Settings.DownConvertAvailableModesCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | CoreVideoMode | False | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
@@ -359,6 +401,8 @@ Implementation: LibAtem.Commands.Settings.DownConvertModeGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | DownConvertMode | False | 0 | Enum (DownConvertMode) | 0 = CentreCut<br/>1 = Letterbox<br/>2 = Anamorphic |
@@ -367,6 +411,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.DownConvertModeSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -379,6 +425,8 @@ TODO - support generating this
 Implementation: LibAtem.Commands.Settings.InputPropertiesSetCommand
 
 Payload length: 32
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -393,6 +441,8 @@ Implementation: LibAtem.Commands.Settings.SDI3GLevelOutputGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SDI3GOutputLevel | False | 0 | Enum (SDI3GOutputLevel) | 0 = LevelB<br/>1 = LevelA |
@@ -401,6 +451,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.SDI3GLevelOutputSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -411,6 +463,8 @@ Implementation: LibAtem.Commands.Settings.SerialPortModeCommand
 
 Payload length: 4
 
+Direction: Both
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SerialMode | False | 0 | Enum (SerialMode) | 0 = None<br/>1 = PtzVisca<br/>2 = Gvg100 |
@@ -419,6 +473,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.VideoModeGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -429,6 +485,8 @@ Implementation: LibAtem.Commands.Settings.VideoModeSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | VideoMode | False | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
@@ -437,6 +495,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewerAvailableModesCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -449,6 +509,8 @@ Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesGetV8Comm
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MultiviewIndex | True | 0 | UInt | 0 - 3 |
@@ -460,6 +522,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -474,6 +538,8 @@ Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesSetV8Comm
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Layout<br/>Bit 1 = ProgramPreviewSwapped |
@@ -485,6 +551,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -499,6 +567,8 @@ Implementation: LibAtem.Commands.Settings.Multiview.MultiviewVuOpacityCommand
 
 Payload length: 4
 
+Direction: Both
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MultiviewIndex | True | 0 | UInt | 8 bits |
@@ -508,6 +578,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowInputGetCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -519,6 +591,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowInputSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -532,6 +606,8 @@ Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowSafeAreaComma
 
 Payload length: 4
 
+Direction: Both
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MultiviewIndex | True | 0 | UInt | 8 bits |
@@ -543,6 +619,8 @@ Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowVuMeterGetCom
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MultiviewIndex | True | 0 | UInt | 8 bits |
@@ -553,6 +631,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowVuMeterSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -574,6 +654,8 @@ Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckSettingsGetCommand
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Id | True | 0-1 | UInt | 0 - 4 |
@@ -586,6 +668,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckSettingsSetCommand
 
 Payload length: 16
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -601,6 +685,8 @@ Implementation: LibAtem.Commands.MixEffects.FadeToBlackAutoCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -609,6 +695,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.FadeToBlackCutCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -620,6 +708,8 @@ Implementation: LibAtem.Commands.MixEffects.FadeToBlackPropertiesGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -630,6 +720,8 @@ Implementation: LibAtem.Commands.MixEffects.FadeToBlackRateSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 1 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -639,6 +731,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.FadeToBlackStateCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -652,6 +746,8 @@ Implementation: LibAtem.Commands.MixEffects.MixEffectAutoCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -661,6 +757,8 @@ Implementation: LibAtem.Commands.MixEffects.MixEffectCutCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -669,6 +767,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.PreviewInputGetCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -680,6 +780,8 @@ Implementation: LibAtem.Commands.MixEffects.PreviewInputSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -689,6 +791,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.ProgramInputGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -700,6 +804,8 @@ Implementation: LibAtem.Commands.MixEffects.ProgramInputSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -709,6 +815,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionDipGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -721,6 +829,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionDipSetCommand
 
 Payload length: 8
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Rate<br/>Bit 1 = Input |
@@ -732,6 +842,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionDVEGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -753,6 +865,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionDVESetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -776,6 +890,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionMixGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -786,6 +902,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionMixSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -795,6 +913,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPositionGetCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -808,6 +928,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPositionSetComm
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -817,6 +939,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPreviewGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -828,6 +952,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPreviewSetComma
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -837,6 +963,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPropertiesGetCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -851,6 +979,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionPropertiesSetCo
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = NextStyle<br/>Bit 1 = NextSelection |
@@ -862,6 +992,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionStingerGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -880,6 +1012,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionStingerSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -900,6 +1034,8 @@ Implementation: LibAtem.Commands.MixEffects.Transition.TransitionWipeGetCommand
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -918,6 +1054,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.MixEffects.Transition.TransitionWipeSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -939,6 +1077,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyAdvancedChromaProper
 
 Payload length: 24
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -959,6 +1099,8 @@ Payload length: 24
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyAdvancedChromaPropertiesSetCommand
 
 Payload length: 28
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -982,6 +1124,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyAdvancedChromaResetC
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -994,6 +1138,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyAdvancedChromaSampleGetCommand
 
 Payload length: 16
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1012,6 +1158,8 @@ Payload length: 16
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyAdvancedChromaSampleSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1032,6 +1180,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyChromaGetCommand
 
 Payload length: 12
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1046,6 +1196,8 @@ Payload length: 12
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyChromaSetCommand
 
 Payload length: 16
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1063,6 +1215,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyCutSourceSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1073,6 +1227,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyDVEGetCommand
 
 Payload length: 60
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1109,6 +1265,8 @@ Payload length: 60
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyDVESetCommand
 
 Payload length: 64
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1147,6 +1305,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFillSourceSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1157,6 +1317,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFlyKeyframeGetCommand
 
 Payload length: 52
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1189,6 +1351,8 @@ Payload length: 52
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFlyKeyframeSetCommand
 
 Payload length: 56
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1226,6 +1390,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyLumaGetCommand
 
 Payload length: 12
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1239,6 +1405,8 @@ Payload length: 12
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyLumaSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1254,6 +1422,8 @@ Payload length: 12
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyMaskSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1271,6 +1441,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyOnAirGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1282,6 +1454,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyOnAirSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1292,6 +1466,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyPatternGetCommand
 
 Payload length: 16
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1310,6 +1486,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyPatternSetCommand
 
 Payload length: 16
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Pattern<br/>Bit 1 = Size<br/>Bit 2 = Symmetry<br/>Bit 3 = Softness<br/>Bit 4 = XPosition<br/>Bit 5 = YPosition<br/>Bit 6 = Inverse |
@@ -1327,6 +1505,8 @@ Payload length: 16
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyPropertiesGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1347,6 +1527,8 @@ Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyTypeSetCommand
 
 Payload length: 8
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = KeyType<br/>Bit 1 = FlyEnabled |
@@ -1360,6 +1542,8 @@ Implementation: LibAtem.Commands.Media.MediaPlayerClipStatusGetCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MediaPlayerId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1372,6 +1556,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Media.MediaPlayerClipStatusSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1387,6 +1573,8 @@ Implementation: LibAtem.Commands.Media.MediaPlayerSourceGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MediaPlayerId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1397,6 +1585,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Media.MediaPlayerSourceSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1411,6 +1601,8 @@ Implementation: LibAtem.Commands.Media.MediaPoolAudioDescriptionCommand
 
 Payload length: 84
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | UInt | 8 bits |
@@ -1423,12 +1615,16 @@ Implementation: LibAtem.Commands.Media.MediaPoolCaptureStillCommand
 
 Payload length: 0
 
+Direction: ToServer
+
 Command has no properties
 
 ### CMPA
 Implementation: LibAtem.Commands.Media.MediaPoolClearAudioCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1439,6 +1635,8 @@ Implementation: LibAtem.Commands.Media.MediaPoolClearClipCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | UInt | 8 bits |
@@ -1448,6 +1646,8 @@ Implementation: LibAtem.Commands.Media.MediaPoolClearStillCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | UInt | 8 bits |
@@ -1456,6 +1656,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Media.MediaPoolClipDescriptionCommand
 
 Payload length: 68
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1469,6 +1671,8 @@ Implementation: LibAtem.Commands.Media.MediaPoolFrameDescriptionCommand
 
 Payload length: -1
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Bank | True | 0 | Enum (MediaPoolFileType) | 0 = Still<br/>1 = Clip1<br/>2 = Clip2 |
@@ -1481,6 +1685,8 @@ Payload length: -1
 Implementation: LibAtem.Commands.Media.MediaPoolSetClipCommand
 
 Payload length: 68
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1500,6 +1706,8 @@ Implementation: LibAtem.Commands.Macro.MacroActionCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | UInt | 16 bits |
@@ -1510,6 +1718,8 @@ Implementation: LibAtem.Commands.Macro.MacroAddTimedPauseCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Frames | False | 2-3 | UInt | 0 - 2500 |
@@ -1518,6 +1728,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Macro.MacroPropertiesGetCommand
 
 Payload length: -1
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1531,6 +1743,8 @@ Implementation: LibAtem.Commands.Macro.MacroPropertiesSetCommand
 
 Payload length: -1
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Name<br/>Bit 1 = Description |
@@ -1543,6 +1757,8 @@ Implementation: LibAtem.Commands.Macro.MacroRecordCommand
 
 Payload length: -1
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | UInt | 16 bits |
@@ -1554,6 +1770,8 @@ Implementation: LibAtem.Commands.Macro.MacroRecordingStatusGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | IsRecording | False | 0 | Bool (Bit 0) |  |
@@ -1564,6 +1782,8 @@ Implementation: LibAtem.Commands.Macro.MacroRunStatusSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | 1 = Loop |
@@ -1573,6 +1793,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Macro.MacroRunStatusGetCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1587,6 +1809,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyAutoV8Command
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = IsTowardsOnAir |
@@ -1598,6 +1822,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyAutoCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1606,6 +1832,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyCutSourceSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1617,6 +1845,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyFillSourceSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1626,6 +1856,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyGeneralSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1640,6 +1872,8 @@ Payload length: 12
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyMaskSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1656,6 +1890,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyOnAirSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1665,6 +1901,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyPropertiesGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1686,6 +1924,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyRateSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1695,6 +1935,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeySourceGetCommand
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1707,6 +1949,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyStateGetV8Command
 
 Payload length: 8
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1722,6 +1966,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyStateGetCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1735,6 +1981,8 @@ Implementation: LibAtem.Commands.DownstreamKey.DownstreamKeyTieSetCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (DownstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1744,6 +1992,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DeviceProfile.AudioMixerConfigCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1759,6 +2009,8 @@ Implementation: LibAtem.Commands.DeviceProfile.FairlightAudioMixerConfigCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Inputs | False | 0 | UInt | 8 bits |
@@ -1769,6 +2021,8 @@ Implementation: LibAtem.Commands.DeviceProfile.MacroPoolConfigCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MacroCount | False | 0 | UInt | 8 bits |
@@ -1777,6 +2031,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DeviceProfile.MediaPoolConfigCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1788,6 +2044,8 @@ Implementation: LibAtem.Commands.DeviceProfile.MixEffectBlockConfigCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
@@ -1798,6 +2056,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DeviceProfile.MultiviewerConfigV8Command
 
 Payload length: 12
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1814,6 +2074,8 @@ Implementation: LibAtem.Commands.DeviceProfile.MultiviewerConfigCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Count | False | 0 | UInt | 8 bits |
@@ -1827,6 +2089,8 @@ Implementation: LibAtem.Commands.DeviceProfile.PowerStatusCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Pin1 | False | 0 | Bool (Bit 0) |  |
@@ -1836,6 +2100,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DeviceProfile.ProductIdentifierCommand
 
 Payload length: 44
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1848,6 +2114,8 @@ Implementation: LibAtem.Commands.DeviceProfile.SuperSourceConfigV8Command
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SSrcId | False | 0 | Enum (SuperSourceId) | 0 = One<br/>1 = Two |
@@ -1858,6 +2126,8 @@ Implementation: LibAtem.Commands.DeviceProfile.SuperSourceConfigCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Boxes | False | 0 | UInt | 8 bits |
@@ -1867,6 +2137,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DeviceProfile.TopologyV8Command
 
 Payload length: 24
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1887,6 +2159,8 @@ Implementation: LibAtem.Commands.DeviceProfile.TopologyCommand
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MixEffectBlocks | False | 0 | UInt | 8 bits |
@@ -1906,6 +2180,8 @@ Implementation: LibAtem.Commands.DeviceProfile.VersionCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | ProtocolVersion | False | 0-3 | Enum (ProtocolVersion) | 131094 = Minimum<br/>131094 = Minimum<br/>131097 = V7_X<br/>131100 = V8_0<br/>131101 = V8_0_1<br/>131101 = V8_0_1 |
@@ -1919,6 +2195,8 @@ Implementation: LibAtem.Commands.DeviceProfile.TimecodeLockedCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Locked | False | 0 | Bool (Bit 0) |  |
@@ -1927,6 +2205,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DataTransfer.DataTransferAckCommand
 
 Payload length: 4
+
+Direction: Both
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1937,6 +2217,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DataTransfer.DataTransferCompleteCommand
 
 Payload length: 4
+
+Direction: Both
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1949,6 +2231,8 @@ TODO - support generating this
 Implementation: LibAtem.Commands.DataTransfer.DataTransferDownloadRequestCommand
 
 Payload length: 12
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1963,6 +2247,8 @@ Implementation: LibAtem.Commands.DataTransfer.DataTransferErrorCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | TransferId | True | 0-1 | UInt | 16 bits |
@@ -1972,6 +2258,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DataTransfer.DataTransferFileDescriptionCommand
 
 Payload length: 212
+
+Direction: Both
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1984,6 +2272,8 @@ Payload length: 212
 Implementation: LibAtem.Commands.DataTransfer.DataTransferUploadContinueCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -1998,6 +2288,8 @@ Implementation: LibAtem.Commands.DataTransfer.DataTransferUploadRequestCommand
 
 Payload length: 16
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | TransferId | True | 0-1 | UInt | 16 bits |
@@ -2011,6 +2303,8 @@ Implementation: LibAtem.Commands.DataTransfer.LockObtainedCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | UInt | 16 bits |
@@ -2019,6 +2313,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DataTransfer.LockStateChangedCommand
 
 Payload length: 4
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2029,6 +2325,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.DataTransfer.LockStateSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2043,6 +2341,8 @@ TODO - support generating this
 Implementation: LibAtem.Commands.Audio.AudioMixerInputGetV8Command
 
 Payload length: 16
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2059,6 +2359,8 @@ Implementation: LibAtem.Commands.Audio.AudioMixerInputGetCommand
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2073,6 +2375,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.AudioMixerInputSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2090,6 +2394,8 @@ Implementation: LibAtem.Commands.Audio.AudioMixerMasterGetCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Gain | False | 0-1 | UInt | 16 bits |
@@ -2100,6 +2406,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Audio.AudioMixerMasterSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2112,6 +2420,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Audio.AudioMixerMonitorGetCommand
 
 Payload length: 12
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2126,6 +2436,8 @@ Payload length: 12
 Implementation: LibAtem.Commands.Audio.AudioMixerMonitorSetCommand
 
 Payload length: 12
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2142,6 +2454,8 @@ Implementation: LibAtem.Commands.Audio.AudioMixerPropertiesGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | AudioFollowVideo | False | 0 | Bool (Bit 0) |  |
@@ -2150,6 +2464,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.AudioMixerPropertiesSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2160,6 +2476,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Audio.AudioMixerResetPeaksCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2174,6 +2492,8 @@ Implementation: LibAtem.Commands.Audio.AudioMixerSendLevelsCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SendLevels | False | 0 | Bool (Bit 0) |  |
@@ -2183,6 +2503,8 @@ Implementation: LibAtem.Commands.Audio.AudioMixerTalkbackPropertiesGetCommand
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | MuteSDI | False | 1 | Bool (Bit 0) |  |
@@ -2191,6 +2513,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.AudioMixerTalkbackPropertiesSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2206,6 +2530,8 @@ Implementation: LibAtem.Commands.Audio.TalkbackMixerInputPropertiesGetCommand
 
 Payload length: 8
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Channel | True | 0 | Enum (TalkbackChannel) | 0 = Production<br/>1 = Engineering |
@@ -2217,6 +2543,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Audio.TalkbackMixerInputPropertiesSetCommand
 
 Payload length: 8
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2230,6 +2558,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerAnalogAudioGetCom
 
 Payload length: 4
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2241,6 +2571,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerAnalogAudioSetCom
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2250,6 +2582,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputGetCommand
 
 Payload length: 16
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2266,6 +2600,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputSetCommand
 
 Payload length: 8
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = RcaToXlrEnabled<br/>Bit 1 = ActiveConfiguration |
@@ -2277,6 +2613,8 @@ Payload length: 8
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterCompressorGetCommand
 
 Payload length: 24
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2291,6 +2629,8 @@ Payload length: 24
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterCompressorSetCommand
 
 Payload length: 24
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2307,6 +2647,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterDynamicsRes
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Dynamics | False | 1 | Bool (Bit 0) |  |
@@ -2318,6 +2660,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterEqualizerBandGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2333,6 +2677,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterEqualizerBandSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2350,6 +2696,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterEqualizerRe
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Equalizer | False | 1 | Bool (Bit 0) |  |
@@ -2358,6 +2706,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterGetCommand
 
 Payload length: 20
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2371,6 +2721,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterLevelsCommand
 
 Payload length: 28
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2394,6 +2746,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterLimiterGetC
 
 Payload length: 20
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | LimiterEnabled | False | 0 | Bool (Bit 0) |  |
@@ -2406,6 +2760,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterLimiterSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2421,6 +2777,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterPropertiesG
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | AudioFollowVideoCrossfadeTransitionEnabled | False | 0 | Bool (Bit 0) |  |
@@ -2429,6 +2787,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterPropertiesSetCommand
 
 Payload length: 4
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2439,6 +2799,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMasterSetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2454,6 +2816,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMonitorGetCommand
 
 Payload length: 32
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Gain | False | 0-3 | Int<br/>Double Scale 100 | -10000 - 600<br/>(-100 - 6) |
@@ -2465,6 +2829,8 @@ Payload length: 32
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerMonitorSetCommand
 
 Payload length: 36
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2479,6 +2845,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerResetPeakLevelsCo
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | All | False | 0 | Bool (Bit 0) |  |
@@ -2489,6 +2857,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSendLevelsCommand
 
 Payload length: 4
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | SendLevels | False | 0 | Bool (Bit 0) |  |
@@ -2497,6 +2867,8 @@ Payload length: 4
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceCompressorGetCommand
 
 Payload length: 40
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2513,6 +2885,8 @@ Payload length: 40
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceCompressorSetCommand
 
 Payload length: 40
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2531,6 +2905,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceDeleteComma
 
 Payload length: 16
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2540,6 +2916,8 @@ Payload length: 16
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceDynamicsResetCommand
 
 Payload length: 20
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2554,6 +2932,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceEqualizerBandGetCommand
 
 Payload length: 36
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2571,6 +2951,8 @@ Payload length: 36
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceEqualizerBandSetCommand
 
 Payload length: 32
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2590,6 +2972,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceEqualizerRe
 
 Payload length: 20
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 2-3 | Enum (AudioSource) | (See audio source list) |
@@ -2600,6 +2984,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceExpanderGetCommand
 
 Payload length: 40
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2619,6 +3005,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceExpanderSet
 
 Payload length: 40
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ExpanderEnabled<br/>Bit 1 = GateEnabled<br/>Bit 2 = Threshold<br/>Bit 3 = Range<br/>Bit 4 = Ratio<br/>Bit 5 = Attack<br/>Bit 6 = Hold<br/>Bit 7 = Release |
@@ -2637,6 +3025,8 @@ Payload length: 40
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceGetCommand
 
 Payload length: 52
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2660,6 +3050,8 @@ Payload length: 52
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceLevelsCommand
 
 Payload length: 40
+
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2686,6 +3078,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceLimiterGetC
 
 Payload length: 36
 
+Direction: ToClient
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2700,6 +3094,8 @@ Payload length: 36
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceLimiterSetCommand
 
 Payload length: 36
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
@@ -2717,6 +3113,8 @@ Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceResetPeakLe
 
 Payload length: 20
 
+Direction: ToServer
+
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
@@ -2729,6 +3127,8 @@ Payload length: 20
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerSourceSetCommand
 
 Payload length: 48
+
+Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
