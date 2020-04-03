@@ -1,0 +1,20 @@
+---
+#layout: page
+title: "Blackmagic Design ATEM Protocol Firmware"
+permalink: /firmware
+---
+## Firmware Versions
+
+The following table lists which releases each model first has firmware, or got an update. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
+
+| Software  Version | Protocol  Version |1ME| 1ME  Panel |GPI|TVS| 2ME  Panel |2ME|PS4K| 1ME  4K | 2ME  4K | 4ME  4K | 1ME  Adv  Panel | Cam  Panel | TVS  HD | TVS  HD  Pro | TVS  Pro  4K |   8K   |Mini| Mini  Pro |    
+|    ||   bd48   |   bd4a   |   bd50   |   bd52   |   bd57   |   bd5c   |   bd6e   |   bd81   |   bd87   |   bdce/bd4b   |   bdeb/be4a   |   be0e   |   be25   |   be26   |   be2c   |   be33   |be49|be55|
+|   ---   ||   ---   |   ---   |||||||||||||||||
+|8|2.28|   ✅   |   ✅   |    |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   New   |||
+|   8.0.1   |2.29|   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |||
+|   8.0.2   ||    |   ✅   |    |    |   ✅   |    |    |    |    |   ✅   |   ✅   |    |    |    |    |   ✅   |||
+|   8.0.3   ||    |    ||||||||   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |||
+|8.1||||||||||||||||||New||
+|   8.1.1   |2.30|   ✅   |   ✅   |    |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   |   ✅   ||
+|   8.1.2   |||||||||||||||||   ✅   |||
+|8.2||||||||||||||||||   ✅   |New|
