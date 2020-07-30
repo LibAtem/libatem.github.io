@@ -72,9 +72,7 @@ Payload length: 4
 
 Direction: ToServer
 
-| Name | IsId | Bytes | Type | Values |
-| --- | --- | --- | --- | --- |
-| Data | False | 0-3 | Bytes |  |
+Command has no properties
 
 ### SRsv
 Implementation: LibAtem.Commands.StartupStateSaveCommand
@@ -83,9 +81,7 @@ Payload length: 4
 
 Direction: ToServer
 
-| Name | IsId | Bytes | Type | Values |
-| --- | --- | --- | --- | --- |
-| Data | False | 0-3 | Bytes |  |
+Command has no properties
 
 ### TlIn
 TODO - support generating this
@@ -284,6 +280,17 @@ Direction: ToServer
 | CropLeft | False | 18-19 | UInt<br/>Double Scale 1000 | 0 - 32000<br/>(0 - 32) |
 | CropRight | False | 20-21 | UInt<br/>Double Scale 1000 | 0 - 32000<br/>(0 - 32) |
 
+### SSCs
+Implementation: LibAtem.Commands.SuperSource.SuperSourceCascadeCommand
+
+Payload length: 4
+
+Direction: Both
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Cascade | False | 0 | Bool (Bit 0) |  |
+
 ### SSrc
 #### Since V8_0
 Implementation: LibAtem.Commands.SuperSource.SuperSourcePropertiesGetV8Command
@@ -384,8 +391,19 @@ Direction: ToServer
 | BorderLightSourceDirection | False | 32-33 | UInt<br/>Double Scale 10 | 0 - 3599<br/>(0 - 359.9) |
 | BorderLightSourceAltitude | False | 34 | UInt | 0 - 100 |
 
-### DHVm
-Implementation: LibAtem.Commands.Settings.DownConvertAvailableModesCommand
+### StrR
+Implementation: LibAtem.Commands.Streaming.StreamingActiveSetCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| IsStreaming | False | 0 | Bool (Bit 0) |  |
+
+### StRS
+Implementation: LibAtem.Commands.Streaming.StreamingStateCommand
 
 Payload length: 4
 
@@ -393,8 +411,72 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| CoreVideoMode | False | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
-| DownConvertedMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| StreamingStatus | False | 0-1 | Enum (StreamingStatus) | 1 = Idle<br/>2 = Connecting<br/>4 = Streaming<br/>8 = Stopping |
+
+### SRSS
+Implementation: LibAtem.Commands.Streaming.SRSSCommand
+
+Payload length: 8
+
+Direction: ToClient
+
+Command has no properties
+
+### SRSU
+Implementation: LibAtem.Commands.Streaming.StreamingServiceGetCommand
+
+Payload length: 1096
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| ServiceName | False | 0-63 | String |  |
+| Url | False | 64-575 | String |  |
+| Key | False | 576-1087 | String |  |
+| Bitrates | False | 1088-1095 | UInt x2 | 32 bits |
+
+### CRSS
+Implementation: LibAtem.Commands.Streaming.StreamingServiceSetCommand
+
+Payload length: 1100
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ServiceName<br/>Bit 1 = Url<br/>Bit 2 = Key<br/>Bit 3 = Bitrates |
+| ServiceName | False | 1-64 | String |  |
+| Url | False | 65-576 | String |  |
+| Key | False | 577-1088 | String |  |
+| Bitrates | False | 1092-1099 | UInt x2 | 32 bits |
+
+### SRST
+Implementation: LibAtem.Commands.Streaming.StreamingTimecodeCommand
+
+Payload length: 8
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Hour | False | 0 | UInt | 0 - 23 |
+| Minute | False | 1 | UInt | 0 - 59 |
+| Second | False | 2 | UInt | 0 - 59 |
+| Frame | False | 3 | UInt | 0 - 59 |
+| IsDropFrame | False | 4 | Bool (Bit 0) |  |
+
+### AiVM
+Implementation: LibAtem.Commands.Settings.AutoVideoModeCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Enabled | False | 0 | Bool (Bit 0) |  |
+| Detected | False | 1 | Bool (Bit 0) |  |
 
 ### DcOt
 Implementation: LibAtem.Commands.Settings.DownConvertModeGetCommand
@@ -418,8 +500,59 @@ Direction: ToServer
 | --- | --- | --- | --- | --- |
 | DownConvertMode | False | 0 | Enum (DownConvertMode) | 0 = CentreCut<br/>1 = Letterbox<br/>2 = Anamorphic |
 
+### DHVm
+Implementation: LibAtem.Commands.Settings.DownConvertVideoModeGetCommand
+
+Payload length: 4
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| CoreVideoMode | True | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| DownConvertedMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+
+### CDHV
+Implementation: LibAtem.Commands.Settings.DownConvertVideoModeSetCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| CoreVideoMode | True | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| DownConvertedMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+
+### RInL
+Implementation: LibAtem.Commands.Settings.InputNameResetCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0-1 | Enum (VideoSource) | (See video source list) |
+
 ### InPr
-TODO - support generating this
+Implementation: LibAtem.Commands.Settings.InputPropertiesGetCommand
+
+Payload length: 36
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0-1 | Enum (VideoSource) | (See video source list) |
+| LongName | False | 2-21 | String |  |
+| ShortName | False | 22-25 | String |  |
+| AreNamesDefault | False | 26 | Bool (Bit 0) |  |
+| AvailableExternalPorts | False | 28-29 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
+| ExternalPortType | False | 30-31 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
+| InternalPortType | False | 32 | Enum (InternalPortType) | 0 = External<br/>1 = Black<br/>2 = ColorBars<br/>3 = ColorGenerator<br/>4 = MediaPlayerFill<br/>5 = MediaPlayerKey<br/>6 = SuperSource<br/>7 = ExternalDirect<br/>128 = MEOutput<br/>129 = Auxiliary<br/>130 = Mask<br/>131 = MultiViewer |
+| SourceAvailability | False | 34 | Enum (SourceAvailability) | Bit -∞ = None<br/>Bit 0 = Auxiliary<br/>Bit 1 = Multiviewer<br/>Bit 2 = SuperSourceArt<br/>Bit 3 = SuperSourceBox<br/>Bit 4 = KeySource<br/>Bit 4.954196310386875 = All |
+| MeAvailability | False | 35 | Enum (MeAvailability) | Bit -∞ = None<br/>Bit 0 = Me1<br/>Bit 1 = Me2<br/>Bit 2 = Me3<br/>Bit 3 = Me4<br/>Bit 3.9068905956085187 = All |
 
 ### CInL
 Implementation: LibAtem.Commands.Settings.InputPropertiesSetCommand
@@ -434,7 +567,35 @@ Direction: ToServer
 | Id | True | 2-3 | Enum (VideoSource) | (See video source list) |
 | LongName | False | 4-23 | String |  |
 | ShortName | False | 24-27 | String |  |
-| ExternalPortType | False | 28-29 | Enum (ExternalPortTypeFlags) | Bit -∞ = Unknown<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 5 = Internal<br/>Bit 6 = XLR<br/>Bit 7 = AESEBU<br/>Bit 8 = RCA<br/>Bit 9 = TSJack |
+| ExternalPortType | False | 28-29 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
+
+### MMOP
+Implementation: LibAtem.Commands.Settings.MixMinusOutputGetCommand
+
+Payload length: 12
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0 | UInt | 8 bits |
+| Mode | False | 1 | Enum (MixMinusMode) | 1 = ProgramOut<br/>2 = MixMinus |
+| SupportedModes | False | 2 | Enum (MixMinusMode) | 1 = ProgramOut<br/>2 = MixMinus |
+| HasAudioInputId | False | 4 | Bool (Bit 0) |  |
+| AudioInputId | False | 6-7 | Enum (AudioSource) | (See audio source list) |
+
+### CMMP
+Implementation: LibAtem.Commands.Settings.MixMinusOutputSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Mode |
+| Id | True | 1 | UInt | 8 bits |
+| Mode | False | 2 | Enum (MixMinusMode) | 1 = ProgramOut<br/>2 = MixMinus |
 
 ### V3sl
 Implementation: LibAtem.Commands.Settings.SDI3GLevelOutputGetCommand
@@ -491,18 +652,6 @@ Direction: ToServer
 | --- | --- | --- | --- | --- |
 | VideoMode | False | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
 
-### MvVM
-Implementation: LibAtem.Commands.Settings.Multiview.MultiviewerAvailableModesCommand
-
-Payload length: 4
-
-Direction: ToClient
-
-| Name | IsId | Bytes | Type | Values |
-| --- | --- | --- | --- | --- |
-| CoreVideoMode | False | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
-| MultiviewMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
-
 ### MvPr
 #### Since V8_0
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesGetV8Command
@@ -515,8 +664,7 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | MultiviewIndex | True | 0 | UInt | 0 - 3 |
 | Layout | False | 1 | Enum (MultiViewLayoutV8) | Bit -∞ = Default<br/>Bit 0 = TopLeftSmall<br/>Bit 1 = TopRightSmall<br/>Bit 1.584962500721156 = ProgramBottom<br/>Bit 2 = BottomLeftSmall<br/>Bit 2.321928094887362 = ProgramRight<br/>Bit 3 = BottomRightSmall<br/>Bit 3.321928094887362 = ProgramLeft<br/>Bit 3.584962500721156 = ProgramTop |
-| SafeAreaEnabled | False | 2 | Bool (Bit 0) |  |
-| ProgramPreviewSwapped | False | 3 | Bool (Bit 0) |  |
+| ProgramPreviewSwapped | False | 2 | Bool (Bit 0) |  |
 
 #### Older
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewPropertiesGetCommand
@@ -562,6 +710,30 @@ Direction: ToServer
 | SafeAreaEnabled | False | 3 | Bool (Bit 0) |  |
 | ProgramPreviewSwapped | False | 4 | Bool (Bit 0) |  |
 
+### MvVM
+Implementation: LibAtem.Commands.Settings.Multiview.MultiviewVideoModeGetCommand
+
+Payload length: 4
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| CoreVideoMode | True | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| MultiviewMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+
+### CMVM
+Implementation: LibAtem.Commands.Settings.Multiview.MultiviewVideoModeSetCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| CoreVideoMode | True | 0 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| MultiviewMode | False | 1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+
 ### VuMo
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewVuOpacityCommand
 
@@ -586,6 +758,8 @@ Direction: ToClient
 | MultiviewIndex | True | 0 | UInt | 8 bits |
 | WindowIndex | True | 1 | UInt | 0 - 15 |
 | Source | False | 2-3 | Enum (VideoSource) | (See video source list) |
+| SupportVuMeter | False | 4 | Bool (Bit 0) |  |
+| SupportsSafeArea | False | 5 | Bool (Bit 0) |  |
 
 ### CMvI
 Implementation: LibAtem.Commands.Settings.Multiview.MultiviewWindowInputSetCommand
@@ -641,13 +815,67 @@ Direction: ToServer
 | VuEnabled | False | 2 | Bool (Bit 0) |  |
 
 ### RXCC
-TODO - support generating this
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckClipCountCommand
+
+Payload length: 4
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0-1 | UInt | 16 bits |
+| ClipCount | False | 2 | UInt | 8 bits |
+
+### RXCS
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckClipInfoCommand
+
+Payload length: 84
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| HyperdeckId | True | 0-1 | UInt | 16 bits |
+| ClipId | True | 2-3 | UInt | 16 bits |
+| Name | False | 4-67 | String |  |
+| TimelineStart | False | 69-72 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| TimelineEnd | False | 74-77 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| Duration | False | 79-82 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
 
 ### RXCP
-TODO - support generating this
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckPlayerGetCommand
 
-### RXSS
-TODO - support generating this
+Payload length: 20
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0-1 | UInt | 16 bits |
+| State | False | 2 | Enum (HyperDeckPlayerState) | 0 = Playing<br/>1 = Idle<br/>2 = Shuttle<br/>4 = Recording |
+| SingleClip | False | 3 | Bool (Bit 0) |  |
+| Loop | False | 4 | Bool (Bit 0) |  |
+| PlaybackSpeed | False | 6-7 | Int | 16 bits |
+| TimelineTime | False | 9-12 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| ClipTime | False | 14-17 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+
+### CXCP
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckPlayerSetCommand
+
+Payload length: 20
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = State<br/>Bit 1 = SingleClip<br/>Bit 2 = Loop<br/>Bit 3 = PlaybackSpeed<br/>Bit 4 = ClipTime<br/>Bit 5 = Jog |
+| Id | True | 2-3 | UInt | 16 bits |
+| State | False | 4 | Enum (HyperDeckPlayerState) | 0 = Playing<br/>1 = Idle<br/>2 = Shuttle<br/>4 = Recording |
+| SingleClip | False | 5 | Bool (Bit 0) |  |
+| Loop | False | 6 | Bool (Bit 0) |  |
+| PlaybackSpeed | False | 8-9 | Int | 16 bits |
+| ClipTime | False | 11-14 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| Jog | False | 15-19 | Bool<br/>Int | Is negative<br/>UInt32 |
 
 ### RXMS
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckSettingsGetCommand
@@ -659,10 +887,13 @@ Direction: ToClient
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Id | True | 0-1 | UInt | 0 - 4 |
-| NetworkAddressBytes | False | 4-7 | Bytes |  |
+| NetworkAddress | False | 4-7 | IP |  |
 | Input | False | 8-9 | Enum (VideoSource) | (See video source list) |
 | AutoRoll | False | 10 | Bool (Bit 0) |  |
-| AutoRollFrameDelay | False | 12 | UInt | 0 - 60 |
+| AutoRollFrameDelay | False | 12-13 | UInt | 0 - 60 |
+| Status | False | 14 | Enum (HyperDeckConnectionStatus) | 0 = NotConnected<br/>1 = Connecting<br/>2 = Connected<br/>3 = Incompatible |
+| StorageMediaCount | False | 16-17 | UInt | 16 bits |
+| IsRemoteEnabled | False | 18 | Bool (Bit 0) |  |
 
 ### CXMS
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckSettingsSetCommand
@@ -673,12 +904,56 @@ Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = NetworkAddress<br/>Bit 1 = Source<br/>Bit 2 = AutoRoll<br/>Bit 3 = AutoRollFrameDelay |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = NetworkAddress<br/>Bit 1 = Input<br/>Bit 2 = AutoRoll<br/>Bit 3 = AutoRollFrameDelay |
 | Id | True | 2-3 | UInt | 0 - 4 |
-| NetworkAddress | False | 4-7 | Bytes |  |
-| Source | False | 8-9 | Enum (VideoSource) | (See video source list) |
+| NetworkAddress | False | 4-7 | IP |  |
+| Input | False | 8-9 | Enum (VideoSource) | (See video source list) |
 | AutoRoll | False | 10 | Bool (Bit 0) |  |
-| AutoRollFrameDelay | False | 12 | UInt | 0 - 60 |
+| AutoRollFrameDelay | False | 12-13 | UInt | 0 - 60 |
+
+### RXSS
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckStorageGetCommand
+
+Payload length: 32
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Id | True | 0-1 | UInt | 16 bits |
+| ActiveStorageStatus | False | 7 | Enum (HyperDeckStorageStatus) | 0 = Unavailable<br/>1 = Ready |
+| ActiveStorageMedia | False | 8-9 | Int | 16 bits |
+| CurrentClipId | False | 10-11 | Int | 16 bits |
+| RemainingRecordTime | False | 13-16 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| FrameRate | False | 20-23 | UInt | 32 bits |
+| TimeScale | False | 24-27 | UInt | 32 bits |
+| IsInterlaced | False | 28 | Bool (Bit 0) |  |
+| IsDropFrameTimecode | False | 29 | Bool (Bit 0) |  |
+
+### CXSS
+Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckStorageSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ActiveStorageMedia<br/>Bit 1 = CurrentClipId |
+| Id | True | 2-3 | UInt | 16 bits |
+| ActiveStorageMedia | False | 4-5 | Int | 16 bits |
+| CurrentClipId | False | 6-7 | Int | 16 bits |
+
+### RMSu
+Implementation: LibAtem.Commands.Recording.RecordingRMSuCommand
+
+Payload length: 140
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Filename | False | 0-63 | String |  |
 
 ### FtbA
 Implementation: LibAtem.Commands.MixEffects.FadeToBlackAutoCommand
@@ -1149,7 +1424,7 @@ Direction: ToClient
 | Preview | False | 3 | Bool (Bit 0) |  |
 | CursorX | False | 4-5 | Int<br/>Double Scale 1000 | -15383 - 15383<br/>(-15.383 - 15.383) |
 | CursorY | False | 6-7 | Int<br/>Double Scale 1000 | -8383 - 8383<br/>(-8.383 - 8.383) |
-| CursorSize | False | 8-9 | UInt<br/>Double Scale 100 | 625 - 9925<br/>(6.25 - 99.25) |
+| CursorSize | False | 8-9 | UInt<br/>Double Scale 100 | 620 - 9925<br/>(6.2 - 99.25) |
 | SampledY | False | 10-11 | UInt<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
 | SampledCb | False | 12-13 | Int<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
 | SampledCr | False | 14-15 | Int<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
@@ -1170,7 +1445,7 @@ Direction: ToServer
 | Preview | False | 4 | Bool (Bit 0) |  |
 | CursorX | False | 6-7 | Int<br/>Double Scale 1000 | -15383 - 15383<br/>(-15.383 - 15.383) |
 | CursorY | False | 8-9 | Int<br/>Double Scale 1000 | -8383 - 8383<br/>(-8.383 - 8.383) |
-| CursorSize | False | 10-11 | UInt<br/>Double Scale 100 | 625 - 9925<br/>(6.25 - 99.25) |
+| CursorSize | False | 10-11 | UInt<br/>Double Scale 100 | 620 - 9925<br/>(6.2 - 99.25) |
 | SampledY | False | 12-13 | UInt<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
 | SampledCb | False | 14-15 | Int<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
 | SampledCr | False | 16-17 | Int<br/>Double Scale 10000 | 0 - 10000<br/>(0 - 1) |
@@ -1275,9 +1550,9 @@ Direction: ToServer
 | KeyerIndex | True | 5 | Enum (UpstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 | SizeX | False | 8-11 | UInt<br/>Double Scale 1000 | 0 - 99990<br/>(0 - 99.99) |
 | SizeY | False | 12-15 | UInt<br/>Double Scale 1000 | 0 - 99990<br/>(0 - 99.99) |
-| PositionX | False | 16-19 | Int<br/>Double Scale 1000 | -1000 - 1000<br/>(-1 - 1) |
-| PositionY | False | 20-23 | Int<br/>Double Scale 1000 | -1000 - 1000<br/>(-1 - 1) |
-| Rotation | False | 24-27 | Int<br/>Double Scale 1000 | -1000 - 1000<br/>(-1 - 1) |
+| PositionX | False | 16-19 | Int<br/>Double Scale 1000 | -1000000 - 1000000<br/>(-1000 - 1000) |
+| PositionY | False | 20-23 | Int<br/>Double Scale 1000 | -1000000 - 1000000<br/>(-1000 - 1000) |
+| Rotation | False | 24-27 | Int<br/>Double Scale 10 | -332230 - 332230<br/>(-33223 - 33223) |
 | BorderEnabled | False | 28 | Bool (Bit 0) |  |
 | BorderShadowEnabled | False | 29 | Bool (Bit 0) |  |
 | BorderBevel | False | 30 | Enum (BorderBevel) | 0 = None<br/>1 = InOut<br/>2 = In<br/>3 = Out |
@@ -1382,8 +1657,48 @@ Direction: ToServer
 | MaskLeft | False | 52-53 | Int<br/>Double Scale 1000 | -16000 - 16000<br/>(-16 - 16) |
 | MaskRight | False | 54-55 | Int<br/>Double Scale 1000 | -16000 - 16000<br/>(-16 - 16) |
 
+### SFKF
+Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFlyKeyframeStoreCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| KeyerIndex | True | 1 | Enum (UpstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| KeyFrame | True | 2 | Enum (FlyKeyKeyFrameId) | 1 = One<br/>2 = Two |
+
 ### KeFS
-TODO - support generating this
+Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFlyPropertiesGetCommand
+
+Payload length: 8
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| KeyerIndex | True | 1 | Enum (UpstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| IsASet | False | 2 | Bool (Bit 0) |  |
+| IsBSet | False | 3 | Bool (Bit 0) |  |
+| RunningToKeyFrame | False | 4 | Enum (FlyKeyKeyFrameType) | 0 = None<br/>1 = A<br/>2 = B<br/>3 = Full<br/>4 = RunToInfinite |
+| RunningToInfinite | False | 5 | Enum (FlyKeyLocation) | 0 = CentreOfKey<br/>1 = TopLeft<br/>2 = TopCentre<br/>3 = TopRight<br/>4 = MiddleLeft<br/>5 = MiddleCentre<br/>6 = MiddleRight<br/>7 = BottomLeft<br/>8 = BottomCentre<br/>9 = BottomRight |
+
+### RFlK
+Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyFlyRunSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MixEffectIndex | True | 1 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| KeyerIndex | True | 2 | Enum (UpstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
+| KeyFrame | False | 4 | Enum (FlyKeyKeyFrameType) | 0 = None<br/>1 = A<br/>2 = B<br/>3 = Full<br/>4 = RunToInfinite |
+| RunToInfinite | False | 5 | Enum (FlyKeyLocation) | 0 = CentreOfKey<br/>1 = TopLeft<br/>2 = TopCentre<br/>3 = TopRight<br/>4 = MiddleLeft<br/>5 = MiddleCentre<br/>6 = MiddleRight<br/>7 = BottomLeft<br/>8 = BottomCentre<br/>9 = BottomRight |
 
 ### KeLm
 Implementation: LibAtem.Commands.MixEffects.Key.MixEffectKeyLumaGetCommand
@@ -1513,6 +1828,7 @@ Direction: ToClient
 | MixEffectIndex | True | 0 | Enum (MixEffectBlockId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 | KeyerIndex | True | 1 | Enum (UpstreamKeyId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 | KeyType | False | 2 | Enum (MixEffectKeyType) | 0 = Luma<br/>1 = Chroma<br/>2 = Pattern<br/>3 = DVE |
+| CanFlyKey | False | 4 | Bool (Bit 0) |  |
 | FlyEnabled | False | 5 | Bool (Bit 0) |  |
 | FillSource | False | 6-7 | Enum (VideoSource) | (See video source list) |
 | CutSource | False | 8-9 | Enum (VideoSource) | (See video source list) |
@@ -1593,8 +1909,8 @@ Direction: ToServer
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = SourceType<br/>Bit 1 = StillIndex<br/>Bit 2 = ClipIndex |
 | Index | True | 1 | Enum (MediaPlayerId) | 0 = One<br/>1 = Two<br/>2 = Three<br/>3 = Four |
 | SourceType | False | 2 | Enum (MediaPlayerSource) | 1 = Still<br/>2 = Clip |
-| ClipIndex | False | 3 | UInt | 8 bits |
-| StillIndex | False | 4 | UInt | 8 bits |
+| StillIndex | False | 3 | UInt | 8 bits |
+| ClipIndex | False | 4 | UInt | 8 bits |
 
 ### MPAS
 Implementation: LibAtem.Commands.Media.MediaPoolAudioDescriptionCommand
@@ -1612,6 +1928,15 @@ Direction: ToClient
 
 ### Capt
 Implementation: LibAtem.Commands.Media.MediaPoolCaptureStillCommand
+
+Payload length: 0
+
+Direction: ToServer
+
+Command has no properties
+
+### CLMP
+Implementation: LibAtem.Commands.Media.MediaPoolClearAllCommand
 
 Payload length: 0
 
@@ -1675,11 +2000,11 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Bank | True | 0 | Enum (MediaPoolFileType) | 0 = Still<br/>1 = Clip1<br/>2 = Clip2 |
+| Bank | True | 0 | Enum (MediaPoolFileType) | 0 = Still<br/>1 = Clip1<br/>2 = Clip2<br/>3 = Clip3<br/>4 = Clip4 |
 | Index | True | 2-3 | UInt | 16 bits |
 | IsUsed | False | 4 | Bool (Bit 0) |  |
 | Hash | False | 5-20 | Bytes |  |
-| Filename | False | 22-23<br/>?? | Length<br/>String | 0 - 20<br/>  |
+| Filename | False | 22-23<br/>?? | Length<br/>String | 0 - 64<br/>  |
 
 ### SMPC
 Implementation: LibAtem.Commands.Media.MediaPoolSetClipCommand
@@ -1696,10 +2021,39 @@ Direction: ToServer
 | Frames | False | 66-67 | UInt | 16 bits |
 
 ### MPSp
-TODO - support generating this
+Implementation: LibAtem.Commands.Media.MediaPoolSettingsGetCommand
+
+Payload length: 12
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MaxFrames | False | 0-7 | UInt x4 | 16 bits |
+| UnassignedFrames | False | 8-9 | UInt | 16 bits |
 
 ### CMPS
-TODO - support generating this
+Implementation: LibAtem.Commands.Media.MediaPoolSettingsSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MaxFrames | False | 0-7 | UInt x4 | 16 bits |
+
+### SMPS
+Implementation: LibAtem.Commands.Media.MediaPoolStillSetFilenameCommand
+
+Payload length: 68
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Index | True | 0 | UInt | 8 bits |
+| Filename | False | 1-64 | String |  |
 
 ### MAct
 Implementation: LibAtem.Commands.Macro.MacroActionCommand
@@ -1735,6 +2089,7 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | UInt | 16 bits |
 | IsUsed | False | 2 | Bool (Bit 0) |  |
+| HasUnsupportedOps | False | 3 | Bool (Bit 0) |  |
 | Name | False | 4-5<br/>?? | Length<br/>String | 0 - 128<br/>  |
 | Description | False | 6-7<br/>?? | Length<br/>String | 0 - 128<br/>  |
 
@@ -1999,6 +2354,7 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | Inputs | False | 0 | UInt | 8 bits |
 | Monitors | False | 1 | UInt | 8 bits |
+| Headphones | False | 2 | UInt | 8 bits |
 
 ### _DVE
 TODO - support generating this
@@ -2052,6 +2408,22 @@ Direction: ToClient
 | KeyCount | False | 1 | UInt | 8 bits |
 
 ### _MvC
+#### Since V8_1_1
+Implementation: LibAtem.Commands.DeviceProfile.MultiviewerConfigV811Command
+
+Payload length: 12
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| WindowCount | False | 0 | UInt | 8 bits |
+| CanRouteInputs | False | 2 | Bool (Bit 0) |  |
+| SupportsVuMeters | False | 5 | Bool (Bit 0) |  |
+| CanToggleSafeArea | False | 6 | Bool (Bit 0) |  |
+| CanSwapPreviewProgram | False | 7 | Bool (Bit 0) |  |
+| SupportsQuadrants | False | 8 | Bool (Bit 0) |  |
+
 #### Since V8_0
 Implementation: LibAtem.Commands.DeviceProfile.MultiviewerConfigV8Command
 
@@ -2063,10 +2435,10 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | Count | False | 0 | UInt | 8 bits |
 | WindowCount | False | 1 | UInt | 8 bits |
-| CanRouteWindows | False | 3 | Bool (Bit 0) |  |
-| CanSwapPreviewProgram | False | 5 | Bool (Bit 0) |  |
+| CanRouteInputs | False | 3 | Bool (Bit 0) |  |
 | SupportsVuMeters | False | 6 | Bool (Bit 0) |  |
 | CanToggleSafeArea | False | 7 | Bool (Bit 0) |  |
+| CanSwapPreviewProgram | False | 8 | Bool (Bit 0) |  |
 | SupportsQuadrants | False | 9 | Bool (Bit 0) |  |
 
 #### Older
@@ -2106,7 +2478,7 @@ Direction: ToClient
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Name | False | 0-39 | String |  |
-| Model | False | 40 | Enum (ModelId) | 0 = Unknown<br/>1 = TVStudio<br/>2 = OneME<br/>3 = TwoME<br/>4 = PS4K<br/>5 = OneME4K<br/>6 = TwoMe4K<br/>7 = TwoMEBS4K<br/>8 = TVStudioHD<br/>11 = Constellation8K |
+| Model | False | 40 | Enum (ModelId) | 0 = Unknown<br/>1 = TVStudio<br/>2 = OneME<br/>3 = TwoME<br/>4 = PS4K<br/>5 = OneME4K<br/>6 = TwoMe4K<br/>7 = TwoMEBS4K<br/>8 = TVStudioHD<br/>9 = TVStudioProHD<br/>10 = TVStudioPro4K<br/>11 = Constellation<br/>12 = Constellation8K<br/>13 = Mini<br/>14 = MiniPro<br/>15 = MiniProISO |
 
 ### _SSC
 #### Since V8_0
@@ -2133,6 +2505,31 @@ Direction: ToClient
 | Boxes | False | 0 | UInt | 8 bits |
 
 ### _top
+#### Since V8_1_1
+Implementation: LibAtem.Commands.DeviceProfile.TopologyV811Command
+
+Payload length: 28
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| MixEffectBlocks | False | 0 | UInt | 8 bits |
+| VideoSources | False | 1 | UInt | 8 bits |
+| DownstreamKeyers | False | 2 | UInt | 8 bits |
+| Auxiliaries | False | 3 | UInt | 8 bits |
+| MixMinusOutputs | False | 4 | UInt | 8 bits |
+| MediaPlayers | False | 5 | UInt | 8 bits |
+| Multiviewers | False | 6 | UInt | 8 bits |
+| SerialPort | False | 7 | UInt | 8 bits |
+| HyperDecks | False | 8 | UInt | 8 bits |
+| DVE | False | 9 | UInt | 8 bits |
+| Stingers | False | 10 | UInt | 8 bits |
+| SuperSource | False | 11 | UInt | 8 bits |
+| CameraControl | False | 18 | Bool (Bit 0) |  |
+| AdvancedChromaKeyers | False | 22 | Bool (Bit 0) |  |
+| OnlyConfigurableOutputs | False | 23 | Bool (Bit 0) |  |
+
 #### Since V8_0
 Implementation: LibAtem.Commands.DeviceProfile.TopologyV8Command
 
@@ -2153,6 +2550,9 @@ Direction: ToClient
 | DVE | False | 8 | UInt | 8 bits |
 | Stingers | False | 9 | UInt | 8 bits |
 | SuperSource | False | 10 | UInt | 8 bits |
+| CameraControl | False | 17 | Bool (Bit 0) |  |
+| AdvancedChromaKeyers | False | 21 | Bool (Bit 0) |  |
+| OnlyConfigurableOutputs | False | 22 | Bool (Bit 0) |  |
 
 #### Older
 Implementation: LibAtem.Commands.DeviceProfile.TopologyCommand
@@ -2184,7 +2584,7 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| ProtocolVersion | False | 0-3 | Enum (ProtocolVersion) | 131094 = Minimum<br/>131094 = Minimum<br/>131097 = V7_X<br/>131100 = V8_0<br/>131101 = V8_0_1<br/>131101 = V8_0_1 |
+| ProtocolVersion | False | 0-3 | Enum (ProtocolVersion) | 131094 = V7_2<br/>131094 = V7_2<br/>131097 = V7_X<br/>131100 = V8_0<br/>131101 = V8_0_1<br/>131102 = V8_1_1<br/>131102 = V8_1_1 |
 
 ### _VMC
 TODO - support generating this
@@ -2200,6 +2600,17 @@ Direction: ToClient
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Locked | False | 0 | Bool (Bit 0) |  |
+
+### FTAD
+Implementation: LibAtem.Commands.DataTransfer.DataTransferAbortCommand
+
+Payload length: 4
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| TransferId | True | 0-1 | UInt | 16 bits |
 
 ### FTUA
 Implementation: LibAtem.Commands.DataTransfer.DataTransferAckCommand
@@ -2238,7 +2649,7 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | TransferId | True | 0-1 | UInt | 16 bits |
 | TransferStoreId | False | 2-3 | UInt | 16 bits |
-| TransferIndex | False | 7 | UInt | 8 bits |
+| TransferIndex | False | 6-7 | UInt | 16 bits |
 | Unknown | False | 8-9 | UInt | 16 bits |
 | Unknown2 | False | 10-11 | UInt | 16 bits |
 
@@ -2278,10 +2689,8 @@ Direction: ToServer
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | TransferId | True | 0-1 | UInt | 16 bits |
-| Unknown | False | 2 | UInt | 8 bits |
 | ChunkSize | False | 6-7 | UInt | 16 bits |
 | ChunkCount | False | 8-9 | UInt | 16 bits |
-| Test3 | False | 10-11 | UInt | 16 bits |
 
 ### FTSD
 Implementation: LibAtem.Commands.DataTransfer.DataTransferUploadRequestCommand
@@ -2333,8 +2742,78 @@ Direction: ToServer
 | Index | True | 0-1 | UInt | 16 bits |
 | Locked | False | 2 | Bool (Bit 0) |  |
 
-### CCst
+### CCdo
+Implementation: LibAtem.Commands.CameraControl.CameraControlDeviceOptionsSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = PeriodicFlushEnabled |
+| Input | True | 1 | Enum (VideoSource) | (See video source list) |
+| Category | True | 2 | UInt | 8 bits |
+| Parameter | True | 3 | UInt | 8 bits |
+| PeriodicFlushEnabled | False | 4 | Bool (Bit 0) |  |
+
+### CCdP
 TODO - support generating this
+
+### CCmd
+TODO - support generating this
+
+### CCst
+Implementation: LibAtem.Commands.CameraControl.CameraControlSettingsGetCommand
+
+Payload length: 4
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Interval | False | 0-3 | UInt | 32 bits |
+
+### CCcs
+Implementation: LibAtem.Commands.CameraControl.CameraControlSettingsSetCommand
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | UInt | 8 bits |
+| Interval | False | 4-7 | UInt | 32 bits |
+
+### AMHP
+Implementation: LibAtem.Commands.Audio.AudioMixerHeadphoneGetCommand
+
+Payload length: 8
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Gain | False | 0-1 | UInt | 16 bits |
+| ProgramOutGain | False | 2-3 | UInt | 16 bits |
+| TalkbackGain | False | 4-5 | UInt | 16 bits |
+| SidetoneGain | False | 6-7 | UInt | 16 bits |
+
+### CAMH
+Implementation: LibAtem.Commands.Audio.AudioMixerHeadphoneSetCommand
+
+Payload length: 12
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Gain<br/>Bit 1 = ProgramOutGain<br/>Bit 2 = TalkbackGain<br/>Bit 3 = SidetoneGain |
+| Gain | False | 2-3 | UInt | 16 bits |
+| ProgramOutGain | False | 4-5 | UInt | 16 bits |
+| TalkbackGain | False | 6-7 | UInt | 16 bits |
+| SidetoneGain | False | 8-9 | UInt | 16 bits |
 
 ### AMIP
 #### Since V8_0
@@ -2349,10 +2828,12 @@ Direction: ToClient
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
 | SourceType | False | 2 | Enum (AudioSourceType) | 0 = ExternalVideo<br/>1 = MediaPlayer<br/>2 = ExternalAudio |
 | IndexOfSourceType | False | 4-5 | UInt | 16 bits |
-| PortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = Headset |
+| PortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = TSJack<br/>1024 = MADI<br/>2048 = TRSJack |
 | MixOption | False | 8 | Enum (AudioMixOption) | 0 = Off<br/>1 = On<br/>2 = AudioFollowVideo |
 | Gain | False | 10-11 | UInt | 16 bits |
 | Balance | False | 12-13 | Int<br/>Double Scale 200 | -10000 - 10000<br/>(-50 - 50) |
+| SupportsRcaToXlrEnabled | False | 14 | Bool (Bit 0) |  |
+| RcaToXlrEnabled | False | 15 | Bool (Bit 0) |  |
 
 #### Older
 Implementation: LibAtem.Commands.Audio.AudioMixerInputGetCommand
@@ -2366,7 +2847,7 @@ Direction: ToClient
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
 | SourceType | False | 2 | Enum (AudioSourceType) | 0 = ExternalVideo<br/>1 = MediaPlayer<br/>2 = ExternalAudio |
 | IndexOfSourceType | False | 4-5 | UInt | 16 bits |
-| PortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = Headset |
+| PortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = TSJack<br/>1024 = MADI<br/>2048 = TRSJack |
 | MixOption | False | 8 | Enum (AudioMixOption) | 0 = Off<br/>1 = On<br/>2 = AudioFollowVideo |
 | Gain | False | 10-11 | UInt | 16 bits |
 | Balance | False | 12-13 | Int<br/>Double Scale 200 | -10000 - 10000<br/>(-50 - 50) |
@@ -2380,11 +2861,12 @@ Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = MixOption<br/>Bit 1 = Gain<br/>Bit 2 = Balance |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = MixOption<br/>Bit 1 = Gain<br/>Bit 2 = Balance<br/>Bit 3 = RcaToXlrEnabled |
 | Index | True | 2-3 | Enum (AudioSource) | (See audio source list) |
 | MixOption | False | 4 | Enum (AudioMixOption) | 0 = Off<br/>1 = On<br/>2 = AudioFollowVideo |
 | Gain | False | 6-7 | UInt | 16 bits |
 | Balance | False | 8-9 | Int<br/>Double Scale 200 | -10000 - 10000<br/>(-50 - 50) |
+| RcaToXlrEnabled | False | 10 | Bool (Bit 0) |  |
 
 ### AMLv
 TODO - support generating this
@@ -2431,6 +2913,7 @@ Direction: ToClient
 | Solo | False | 5 | Bool (Bit 0) |  |
 | SoloSource | False | 6-7 | Enum (AudioSource) | (See audio source list) |
 | Dim | False | 8 | Bool (Bit 0) |  |
+| DimLevel | False | 10-11 | UInt<br/>Double Scale 100 | 0 - 10000<br/>(0 - 100) |
 
 ### CAMm
 Implementation: LibAtem.Commands.Audio.AudioMixerMonitorSetCommand
@@ -2441,13 +2924,14 @@ Direction: ToServer
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Enabled<br/>Bit 1 = Gain<br/>Bit 2 = Mute<br/>Bit 3 = Solo<br/>Bit 4 = SoloSource<br/>Bit 5 = Dim |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Enabled<br/>Bit 1 = Gain<br/>Bit 2 = Mute<br/>Bit 3 = Solo<br/>Bit 4 = SoloSource<br/>Bit 5 = Dim<br/>Bit 6 = DimLevel |
 | Enabled | False | 1 | Bool (Bit 0) |  |
 | Gain | False | 2-3 | UInt | 16 bits |
 | Mute | False | 4 | Bool (Bit 0) |  |
 | Solo | False | 5 | Bool (Bit 0) |  |
 | SoloSource | False | 6-7 | Enum (AudioSource) | (See audio source list) |
 | Dim | False | 8 | Bool (Bit 0) |  |
+| DimLevel | False | 10-11 | UInt<br/>Double Scale 100 | 0 - 10000<br/>(0 - 100) |
 
 ### AMPP
 Implementation: LibAtem.Commands.Audio.AudioMixerPropertiesGetCommand
@@ -2463,7 +2947,7 @@ Direction: ToClient
 ### CAMP
 Implementation: LibAtem.Commands.Audio.AudioMixerPropertiesSetCommand
 
-Payload length: 8
+Payload length: 4
 
 Direction: ToServer
 
@@ -2563,8 +3047,8 @@ Direction: ToClient
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
-| SupportedInputLevel | False | 2 | Enum (FairlightAnalogInputLevel) | 1 = Microphone<br/>2 = ConsumerLine |
-| InputLevel | False | 3 | Enum (FairlightAnalogInputLevel) | 1 = Microphone<br/>2 = ConsumerLine |
+| SupportedInputLevel | False | 2 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
+| InputLevel | False | 3 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
 
 ### CFAA
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerAnalogAudioSetCommand
@@ -2576,26 +3060,59 @@ Direction: ToServer
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
-| InputLevel | False | 2 | Enum (FairlightAnalogInputLevel) | 1 = Microphone<br/>2 = ConsumerLine |
+| InputLevel | False | 2 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
 
 ### FAIP
-Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputGetCommand
+#### Since V8_1_1
+Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputGetV811Command
 
 Payload length: 16
 
-Direction: ToServer
+Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
 | InputType | False | 2 | Enum (FairlightInputType) | 0 = EmbeddedWithVideo<br/>1 = MediaPlayer<br/>2 = AudioIn<br/>4 = MADI |
-| ExternalPortType | False | 6-7 | Enum (ExternalPortType) | 0 = Internal<br/>1 = SDI<br/>2 = HDMI<br/>3 = Composite<br/>4 = Component<br/>5 = SVideo<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>512 = TSJack<br/>1024 = MADI<br/>2048 = TRS |
+| ExternalPortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = TSJack<br/>1024 = MADI<br/>2048 = TRSJack |
+| SupportedConfigurations | False | 9 | Enum (FairlightInputConfiguration) | 1 = Mono<br/>2 = Stereo<br/>4 = DualMono |
+| ActiveConfiguration | False | 10 | Enum (FairlightInputConfiguration) | 1 = Mono<br/>2 = Stereo<br/>4 = DualMono |
+| SupportedInputLevels | False | 11 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
+| ActiveInputLevel | False | 12 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
+
+#### Older
+Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputGetCommand
+
+Payload length: 16
+
+Direction: ToClient
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Index | True | 0-1 | Enum (AudioSource) | (See audio source list) |
+| InputType | False | 2 | Enum (FairlightInputType) | 0 = EmbeddedWithVideo<br/>1 = MediaPlayer<br/>2 = AudioIn<br/>4 = MADI |
+| ExternalPortType | False | 6-7 | Enum (AudioPortType) | 0 = Unknown<br/>1 = SDI<br/>2 = HDMI<br/>32 = XLR<br/>64 = AESEBU<br/>128 = RCA<br/>256 = Internal<br/>512 = TSJack<br/>1024 = MADI<br/>2048 = TRSJack |
 | SupportsRcaToXlr | False | 8 | Bool (Bit 0) |  |
 | RcaToXlrEnabled | False | 9 | Bool (Bit 0) |  |
 | SupportedConfigurations | False | 11 | Enum (FairlightInputConfiguration) | 1 = Mono<br/>2 = Stereo<br/>4 = DualMono |
 | ActiveConfiguration | False | 12 | Enum (FairlightInputConfiguration) | 1 = Mono<br/>2 = Stereo<br/>4 = DualMono |
 
 ### CFIP
+#### Since V8_1_1
+Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputSetV811Command
+
+Payload length: 8
+
+Direction: ToServer
+
+| Name | IsId | Bytes | Type | Values |
+| --- | --- | --- | --- | --- |
+| Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ActiveConfiguration<br/>Bit 1 = ActiveInputLevel |
+| Index | True | 2-3 | Enum (AudioSource) | (See audio source list) |
+| ActiveConfiguration | False | 4 | Enum (FairlightInputConfiguration) | 1 = Mono<br/>2 = Stereo<br/>4 = DualMono |
+| ActiveInputLevel | False | 5 | Enum (FairlightAnalogInputLevel) | Bit 0 = Microphone<br/>Bit 1 = ConsumerLine<br/>Bit 2 = ProLine |
+
+#### Older
 Implementation: LibAtem.Commands.Audio.Fairlight.FairlightMixerInputSetCommand
 
 Payload length: 8
@@ -2941,7 +3458,9 @@ Direction: ToClient
 | SourceId | True | 8-15 | Int | 64 bits |
 | Band | True | 16 | UInt | 0 - 5 |
 | BandEnabled | False | 17 | Bool (Bit 0) |  |
+| SupportedShapes | False | 18 | Enum (FairlightEqualizerBandShape) | 1 = LowShelf<br/>2 = LowPass<br/>4 = BandPass<br/>8 = Notch<br/>16 = HighPass<br/>32 = HighShelf |
 | Shape | False | 19 | Enum (FairlightEqualizerBandShape) | 1 = LowShelf<br/>2 = LowPass<br/>4 = BandPass<br/>8 = Notch<br/>16 = HighPass<br/>32 = HighShelf |
+| SupportedFrequencyRanges | False | 20 | Enum (FairlightEqualizerFrequencyRange) | 1 = Low<br/>2 = MidLow<br/>4 = MidHigh<br/>8 = High |
 | FrequencyRange | False | 21 | Enum (FairlightEqualizerFrequencyRange) | 1 = Low<br/>2 = MidLow<br/>4 = MidHigh<br/>8 = High |
 | Frequency | False | 24-27 | UInt | 30 - 21700 |
 | Gain | False | 28-31 | Int<br/>Double Scale 100 | -2000 - 2000<br/>(-20 - 20) |
@@ -3038,6 +3557,7 @@ Direction: ToClient
 | Gain | False | 20-23 | Int<br/>Double Scale 100 | -10000 - 600<br/>(-100 - 6) |
 | HasStereoSimulation | False | 24 | Bool (Bit 0) |  |
 | StereoSimulation | False | 26-27 | Int<br/>Double Scale 100 | 0 - 10000<br/>(0 - 100) |
+| EqualizerBands | False | 28 | UInt | 8 bits |
 | EqualizerEnabled | False | 29 | Bool (Bit 0) |  |
 | EqualizerGain | False | 32-35 | Int<br/>Double Scale 100 | -2000 - 2000<br/>(-20 - 20) |
 | MakeUpGain | False | 36-39 | Int<br/>Double Scale 100 | 0 - 2000<br/>(0 - 20) |
