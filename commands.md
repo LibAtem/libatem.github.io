@@ -838,9 +838,9 @@ Direction: ToClient
 | HyperdeckId | True | 0-1 | UInt | 16 bits |
 | ClipId | True | 2-3 | UInt | 16 bits |
 | Name | False | 4-67 | String |  |
-| TimelineStart | False | 69-72 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
-| TimelineEnd | False | 74-77 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
-| Duration | False | 79-82 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| TimelineStart | False | 69-72 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
+| TimelineEnd | False | 74-77 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
+| Duration | False | 79-82 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
 
 ### RXCP
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckPlayerGetCommand
@@ -856,8 +856,8 @@ Direction: ToClient
 | SingleClip | False | 3 | Bool (Bit 0) |  |
 | Loop | False | 4 | Bool (Bit 0) |  |
 | PlaybackSpeed | False | 6-7 | Int | 16 bits |
-| TimelineTime | False | 9-12 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
-| ClipTime | False | 14-17 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| TimelineTime | False | 9-12 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
+| ClipTime | False | 14-17 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
 
 ### CXCP
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckPlayerSetCommand
@@ -874,8 +874,8 @@ Direction: ToServer
 | SingleClip | False | 5 | Bool (Bit 0) |  |
 | Loop | False | 6 | Bool (Bit 0) |  |
 | PlaybackSpeed | False | 8-9 | Int | 16 bits |
-| ClipTime | False | 11-14 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
-| Jog | False | 15-19 | Bool<br/>Int | Is negative<br/>UInt32 |
+| ClipTime | False | 11-14 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
+| Jog | False | 15-19 | Bool (Byte 0)<br/>UInt (Byte 1-4) | Is negative<br/>32 bits |
 
 ### RXMS
 Implementation: LibAtem.Commands.Settings.HyperDeck.HyperDeckSettingsGetCommand
@@ -924,7 +924,7 @@ Direction: ToClient
 | ActiveStorageStatus | False | 7 | Enum (HyperDeckStorageStatus) | 0 = Unavailable<br/>1 = Ready |
 | ActiveStorageMedia | False | 8-9 | Int | 16 bits |
 | CurrentClipId | False | 10-11 | Int | 16 bits |
-| RemainingRecordTime | False | 13-16 | Hours<br/>Minutes<br/>Seconds<br/>Frames | 8bit<br/>8bit<br/>8bit<br/>8bit |
+| RemainingRecordTime | False | 13-16 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
 | FrameRate | False | 20-23 | UInt | 32 bits |
 | TimeScale | False | 24-27 | UInt | 32 bits |
 | IsInterlaced | False | 28 | Bool (Bit 0) |  |
