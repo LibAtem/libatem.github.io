@@ -23,3 +23,4 @@ The following table lists which releases each model first has firmware, or got a
 |8.2.3||||||||||||||||||✅|✅|||
 |8.3||||||||||||✅|✅||||||||New|New
 |8.4|||||||||||||||||||✅|New||
+|8.5||||||||||||||||||✅|✅|✅||
