@@ -138,7 +138,7 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Text | False | 0-43 | String |  |
+| Text | False | 0-43 | String | Up to 44 bytes. Null terminated |
 
 ### TMIP
 #### Since V8_0
@@ -470,8 +470,8 @@ Direction: Both
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Username | False | 0-63 | String |  |
-| Password | False | 64-127 | String |  |
+| Username | False | 0-63 | String | Up to 64 bytes. Null terminated |
+| Password | False | 64-127 | String | Up to 64 bytes. Null terminated |
 
 ### SRST
 #### Since V8_1_1
@@ -509,9 +509,9 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| ServiceName | False | 0-63 | String |  |
-| Url | False | 64-575 | String |  |
-| Key | False | 576-1087 | String |  |
+| ServiceName | False | 0-63 | String | Up to 64 bytes. Null terminated |
+| Url | False | 64-575 | String | Up to 512 bytes. Null terminated |
+| Key | False | 576-1087 | String | Up to 512 bytes. Null terminated |
 | Bitrates | False | 1088-1095 | UInt x2 | 32 bits |
 
 ### CRSS
@@ -525,9 +525,9 @@ Direction: ToServer
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = ServiceName<br/>Bit 1 = Url<br/>Bit 2 = Key<br/>Bit 3 = Bitrates |
-| ServiceName | False | 1-64 | String |  |
-| Url | False | 65-576 | String |  |
-| Key | False | 577-1088 | String |  |
+| ServiceName | False | 1-64 | String | Up to 64 bytes. Null terminated |
+| Url | False | 65-576 | String | Up to 512 bytes. Null terminated |
+| Key | False | 577-1088 | String | Up to 512 bytes. Null terminated |
 | Bitrates | False | 1092-1099 | UInt x2 | 32 bits |
 
 ### SRSS
@@ -646,8 +646,8 @@ Direction: ToClient
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Id | True | 0-1 | Enum (VideoSource) | (See video source list) |
-| LongName | False | 2-21 | String |  |
-| ShortName | False | 22-25 | String |  |
+| LongName | False | 2-21 | String | Up to 20 bytes. Null terminated |
+| ShortName | False | 22-25 | String | Up to 4 bytes. Null terminated |
 | AreNamesDefault | False | 26 | Bool (Bit 0) |  |
 | AvailableExternalPorts | False | 28-29 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
 | ExternalPortType | False | 30-31 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
@@ -666,8 +666,8 @@ Direction: ToServer
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = LongName<br/>Bit 1 = ShortName<br/>Bit 2 = ExternalPortType |
 | Id | True | 2-3 | Enum (VideoSource) | (See video source list) |
-| LongName | False | 4-23 | String |  |
-| ShortName | False | 24-27 | String |  |
+| LongName | False | 4-23 | String | Up to 20 bytes. Null terminated |
+| ShortName | False | 24-27 | String | Up to 4 bytes. Null terminated |
 | ExternalPortType | False | 28-29 | Enum (VideoPortType) | Bit -∞ = None<br/>Bit 0 = SDI<br/>Bit 1 = HDMI<br/>Bit 2 = Component<br/>Bit 3 = Composite<br/>Bit 4 = SVideo<br/>Bit 8 = Internal |
 
 ### MMOP
@@ -938,7 +938,7 @@ Direction: ToClient
 | --- | --- | --- | --- | --- |
 | HyperdeckId | True | 0-1 | UInt | 16 bits |
 | ClipId | True | 2-3 | UInt | 16 bits |
-| Name | False | 4-67 | String |  |
+| Name | False | 4-67 | String | Up to 64 bytes. Null terminated |
 | TimelineStart | False | 69-72 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
 | TimelineEnd | False | 74-77 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
 | Duration | False | 79-82 | Hours (Byte 0)<br/>Minutes (Byte 1)<br/>Seconds (Byte 2)<br/>Frames (Byte 3) | 8bit<br/>0 - 59<br/>0 - 59<br/>0 - 59 |
@@ -1058,7 +1058,7 @@ Direction: ToClient
 | DiskId | True | 0-3 | UInt | 32 bits |
 | RecordingTimeAvailable | False | 4-7 | UInt | 32 bits |
 | RawStatus | False | 8-9 | UInt | 16 bits |
-| VolumeName | False | 10-73 | String |  |
+| VolumeName | False | 10-73 | String | Up to 64 bytes. Null terminated |
 
 ### RTMR
 #### Since V8_1_1
@@ -1108,7 +1108,7 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Filename | False | 0-127 | String |  |
+| Filename | False | 0-127 | String | Up to 128 bytes. Null terminated |
 | WorkingSet1DiskId | False | 128-131 | UInt | 32 bits |
 | WorkingSet2DiskId | False | 132-135 | UInt | 32 bits |
 | RecordInAllCameras | False | 136 | Bool (Bit 0) |  |
@@ -1124,7 +1124,7 @@ Direction: ToServer
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Mask | False | 0 | Enum (MaskFlags) | Bit 0 = Filename<br/>Bit 1 = WorkingSet1DiskId<br/>Bit 2 = WorkingSet2DiskId<br/>Bit 3 = RecordInAllCameras |
-| Filename | False | 1-128 | String |  |
+| Filename | False | 1-128 | String | Up to 128 bytes. Null terminated |
 | WorkingSet1DiskId | False | 132-135 | UInt | 32 bits |
 | WorkingSet2DiskId | False | 136-139 | UInt | 32 bits |
 | RecordInAllCameras | False | 140 | Bool (Bit 0) |  |
@@ -2133,7 +2133,7 @@ Direction: ToClient
 | Index | True | 0 | UInt | 8 bits |
 | IsUsed | False | 1 | Bool (Bit 0) |  |
 | Hash | False | 2-17 | Bytes |  |
-| Name | False | 18-81 | String |  |
+| Name | False | 18-81 | String | Up to 64 bytes. Null terminated |
 
 ### Capt
 Implementation: LibAtem.Commands.Media.MediaPoolCaptureStillCommand
@@ -2197,7 +2197,7 @@ Direction: ToServer
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | UInt | 8 bits |
 | IsUsed | False | 1 | Bool (Bit 0) |  |
-| Name | False | 2-65 | String |  |
+| Name | False | 2-65 | String | Up to 64 bytes. Null terminated |
 | FrameCount | False | 66-67 | UInt | 16 bits |
 
 ### MPfe
@@ -2226,7 +2226,7 @@ Direction: ToServer
 | --- | --- | --- | --- | --- |
 | B0 | False | 0 | UInt | 8 bits |
 | Index | True | 1 | UInt | 8 bits |
-| Name | False | 2-45 | String |  |
+| Name | False | 2-45 | String | Up to 44 bytes. Null terminated |
 | Frames | False | 66-67 | UInt | 16 bits |
 
 ### MPSp
@@ -2262,7 +2262,7 @@ Direction: ToServer
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | Index | True | 0 | UInt | 8 bits |
-| Filename | False | 1-64 | String |  |
+| Filename | False | 1-64 | String | Up to 64 bytes. Null terminated |
 
 ### MAct
 Implementation: LibAtem.Commands.Macro.MacroActionCommand
@@ -2686,7 +2686,7 @@ Direction: ToClient
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Name | False | 0-39 | String |  |
+| Name | False | 0-39 | String | Up to 40 bytes. Null terminated |
 | Model | False | 40 | Enum (ModelId) | 0 = Unknown<br/>1 = TVStudio<br/>2 = OneME<br/>3 = TwoME<br/>4 = PS4K<br/>5 = OneME4K<br/>6 = TwoMe4K<br/>7 = TwoMEBS4K<br/>8 = TVStudioHD<br/>9 = TVStudioProHD<br/>10 = TVStudioPro4K<br/>11 = Constellation<br/>12 = Constellation8K<br/>13 = Mini<br/>14 = MiniPro<br/>15 = MiniProISO |
 
 ### _SSC
@@ -2910,8 +2910,8 @@ Direction: Both
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
 | TransferId | True | 0-1 | UInt | 16 bits |
-| Name | False | 2-65 | String |  |
-| Description | False | 66-193 | String |  |
+| Name | False | 2-65 | String | Up to 64 bytes. Null terminated |
+| Description | False | 66-193 | String | Up to 128 bytes. Null terminated |
 | FileHash | False | 194-209 | Bytes |  |
 
 ### FTCD
