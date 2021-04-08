@@ -16,7 +16,7 @@ Payload length: 4
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| Index | True | 0-1 | Enum (AuxiliaryId) | (See auxiliary list) |
+| Index | True | 0-1 | UInt | 16 bits |
 | Source | False | 2-3 | Enum (VideoSource) | (See video source list) |
 
 ### ColorGeneratorHue (28)
@@ -735,7 +735,7 @@ Payload length: 4
 
 | Name | IsId | Bytes | Type | Values |
 | --- | --- | --- | --- | --- |
-| VideoMode | False | 0-1 | Enum (VideoMode) | 0 = N525i5994NTSC<br/>1 = P625i50PAL<br/>2 = N525i5994169<br/>3 = P625i50169<br/>4 = P720p50<br/>5 = N720p5994<br/>6 = P1080i50<br/>7 = N1080i5994<br/>8 = N1080p2398<br/>9 = N1080p24<br/>10 = P1080p25<br/>11 = N1080p2997<br/>12 = P1080p50<br/>13 = N1080p5994<br/>14 = N4KHDp2398<br/>15 = N4KHDp24<br/>16 = P4KHDp25<br/>17 = N4KHDp2997<br/>18 = P4KHDp5000<br/>19 = N4KHDp5994<br/>20 = N8KHDp2398<br/>21 = N8KHDp24<br/>22 = P8KHDp25<br/>23 = N8KHDp2997<br/>24 = P8KHDp50<br/>25 = N8KHDp5994<br/>26 = N1080p30<br/>27 = N1080p60 |
+| VideoMode | False | 0-1 | Enum (VideoMode) | (See video mode list) |
 
 ### AutoTransition (5)
 Implementation: LibAtem.MacroOperations.MixEffects.AutoTransitionMacroOp

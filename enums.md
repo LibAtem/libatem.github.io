@@ -150,11 +150,33 @@ Note: Not every value of these enums is available in every model. It is possible
 - 2003 = MP3
 - 2004 = MP4
 
-### AuxiliaryId
-- 0 = One
-- 1 = Two
-- 2 = Three
-- 3 = Four
-- 4 = Five
-- 5 = Six
+### VideoMode
+- 0 = N525i5994NTSC
+- 1 = P625i50PAL
+- 2 = N525i5994169
+- 3 = P625i50169
+- 4 = P720p50
+- 5 = N720p5994
+- 6 = P1080i50
+- 7 = N1080i5994
+- 8 = N1080p2398
+- 9 = N1080p24
+- 10 = P1080p25
+- 11 = N1080p2997
+- 12 = P1080p50
+- 13 = N1080p5994
+- 14 = N4KHDp2398
+- 15 = N4KHDp24
+- 16 = P4KHDp25
+- 17 = N4KHDp2997
+- 18 = P4KHDp5000
+- 19 = N4KHDp5994
+- 20 = N8KHDp2398
+- 21 = N8KHDp24
+- 22 = P8KHDp25
+- 23 = N8KHDp2997
+- 24 = P8KHDp50
+- 25 = N8KHDp5994
+- 26 = N1080p30
+- 27 = N1080p60
 
