@@ -1,6 +1,6 @@
 ---
 #layout: page
-title: "Blackmagic Design ATEM Protocol Firmware"
+title: Blackmagic Design ATEM Protocol Firmware
 permalink: /firmware
 ---
 ## Firmware Versions
@@ -34,4 +34,5 @@ The following table lists which releases each model first has firmware, or got a
 |8.6.4|||||||||||||||||||||||||||
 |8.6.5|||||||||||||||||||||||||||
 |8.7|||||||||||||||||||||||||New|New|
+|8.7.1||||||||||||✅|||||||✅|✅|✅|✅|||||
 
