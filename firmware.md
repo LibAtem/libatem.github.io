@@ -8,6 +8,15 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.0.2 (June 2023)
+
+- Television Studio HD8 ISO
+- Television Studio HD8
+
+### v9.0.1 ( 2023)
+
+- 4ME Constellation HD
+
 ### v9.0 (Feb 2023)
 
 - Television Studio HD8 ISO (New)
