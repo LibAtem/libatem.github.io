@@ -8,6 +8,16 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.2.1 (September 2023)
+
+- ATEM 1 M/E Constellation HD
+- ATEM 2 M/E Constellation HD
+- ATEM 4 M/E Constellation HD
+- ATEM Camera Control Panel (Translations only)
+- ATEM Television Studio HD (Translations only)
+- ATEM Television Studio Pro HD (Translations only)
+- ATEM Television Studio Pro 4K (Translations only)
+
 ### v9.2 (September 2023)
 
 - Streaming Bridge
