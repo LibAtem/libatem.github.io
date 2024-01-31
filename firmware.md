@@ -8,6 +8,19 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.3.2 (January 2024)
+
+- 1 M/E Broadcast Panel
+- 2 M/E Broadcast Panel
+- Camera Control Panel
+- 1 M/E Advanced Panel 10
+- 1 M/E Advanced Panel 20
+- 1 M/E Advanced Panel 30
+- 2 M/E Advanced Panel 20
+- 2 M/E Advanced Panel 30
+- 2 M/E Advanced Panel 40
+- 4 M/E Advanced Panel 40
+
 ### v9.3.1 (December 2023)
 
 - 4ME Constellation 4K
