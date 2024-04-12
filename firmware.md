@@ -8,6 +8,12 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.4.0 (April 2024)
+
+- 1 M/E Constellation 4K (New)
+- 2 M/E Constellation 4K (New)
+- 4 M/E Constellation 4K
+
 ### v9.3.3 (March 2024)
 
 - Constellation 8K
