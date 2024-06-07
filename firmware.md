@@ -8,6 +8,15 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.5.0 (June 2024)
+
+- Mini Extreme
+- Mini Extreme ISO
+- Mini Pro
+- Mini Pro ISO
+- SDI Pro ISO
+- SDI Extreme ISO
+
 ### v9.4.0 (April 2024)
 
 - 1 M/E Constellation 4K (New)
