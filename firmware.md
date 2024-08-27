@@ -8,6 +8,10 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.6.1 (August 2024)
+
+- Streaming Bridge
+
 ### v9.6.0 (August 2024)
 
 - Micro Panel (New)
