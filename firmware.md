@@ -8,6 +8,16 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.6.2 (September 2024)
+
+- Constellation 8K
+- 1 M/E Constellation HD
+- 2 M/E Constellation HD
+- 4 M/E Constellation HD
+- 1 M/E Constellation 4K
+- 2 M/E Constellation 4K
+- 4 M/E Constellation 4K
+
 ### v9.6.1 (August 2024)
 
 - Streaming Bridge
