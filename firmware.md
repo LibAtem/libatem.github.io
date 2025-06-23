@@ -8,6 +8,33 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v9.8.0 (June 2025)
+
+- Micro Camera Panel (New)
+
+### v9.7.1 (June 2025)
+
+- Streaming Bridge
+
+### v9.7.0 (February 2025)
+
+- Television Studio HD8
+- Television Studio HD8 ISO
+- Television Studio 4K8
+
+### v9.6.3 (Decemver 2024)
+
+- Constellation 8K
+- Camera Control Panel
+- 1 M/E Advanced Panel 10
+- 1 M/E Advanced Panel 20
+- 1 M/E Advanced Panel 30
+- 2 M/E Advanced Panel 20
+- 2 M/E Advanced Panel 30
+- 2 M/E Advanced Panel 40
+- 4 M/E Advanced Panel 40
+- Micro Panel (New)
+
 ### v9.6.2 (September 2024)
 
 - Constellation 8K
