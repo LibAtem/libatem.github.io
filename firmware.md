@@ -8,9 +8,30 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+### v10.2.0 (December 2025)
+
+- ATEM Constellation 8K
+- ATEM 4 M/E Constellation 4K Plus
+- ATEM 4 M/E Constellation 4K
+- ATEM 2 M/E Constellation 4K
+- ATEM 1 M/E Constellation 4K
+- ATEM 4 M/E Constellation HD
+- ATEM 2 M/E Constellation HD
+- ATEM 1 M/E Constellation HD
+- ATEM Mini Extreme ISO G2
+- ATEM 4 M/E Advanced Panel 40
+- ATEM 2 M/E Advanced Panel 40
+- ATEM 2 M/E Advanced Panel 30
+- ATEM 2 M/E Advanced Panel 20
+- ATEM 1 M/E Advanced Panel 30
+- ATEM 1 M/E Advanced Panel 20
+- ATEM 1 M/E Advanced Panel 10
+- ATEM Camera Control Panel
+- ATEM Micro Panel
+
 ### v10.1.0 (October 2025)
 
-- ATEM Mini Extreeme ISO G2 (New)
+- ATEM Mini Extreme ISO G2 (New)
 
 ### v10.0.0 (September 2025)
 
