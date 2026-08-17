@@ -8,6 +8,50 @@ permalink: /firmware
 
 Below is listed which software releases updated the firmware of each model. This is useful to know as we know that the protocol will not have changed, and so newer/older versions of ATEM Software Control will happily work with between firmware changes.
 
+<!-- 
+TODO: This is too suspicious to be true
+
+### v10.3.0 (August 2026)
+
+- ATEM 1 M/E Production Switcher
+- ATEM 1 M/E Broadcast Panel
+- ATEM Television Studio
+- ATEM 2 M/E Broadcast Panel
+- ATEM 2 M/E Production Switcher
+- ATEM Production Studio 4K
+- ATEM 1 M/E Production Studio 4K
+- ATEM 2 M/E Production Studio 4K
+- ATEM Camera Control Panel
+- ATEM Television Studio HD
+- ATEM Television Studio Pro HD
+- ATEM Television Studio Pro 4K
+- ATEM 1 M/E Advanced Panel 10
+- ATEM 4 M/E Broadcast Studio 4K
+- ATEM Mini Pro
+- ATEM Mini Pro ISO
+- ATEM Mini Extreme
+- ATEM Mini Extreme ISO
+- ATEM 4 M/E Constellation HD
+- ATEM SDI Pro ISO
+- ATEM SDI Extreme ISO
+- ATEM Television Studio HD8
+- ATEM Television Studio HD8 ISO
+- ATEM 1 M/E Constellation 4K
+- ATEM 2 M/E Constellation 4K
+- ATEM 4 M/E Constellation 4K
+- ATEM Television Studio 4K8
+- ATEM Micro Panel
+- ATEM 4 M/E Constellation 4K Plus
+- ATEM Mini Extreme ISO G2
+- ATEM Micro Camera Panel -->
+
+### v10.2.1 (January 2026)
+
+- ATEM 1 M/E Constellation 4K
+- ATEM 2 M/E Constellation 4K
+- ATEM 4 M/E Constellation 4K
+- ATEM 4 M/E Constellation 4K Plus
+
 ### v10.2.0 (December 2025)
 
 - ATEM Constellation 8K
